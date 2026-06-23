@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Payout Center</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<style>
+   
+       body{
+
+    margin:0;
+
+    font-family:Arial,sans-serif;
+
+    background:#111;
+
+    color:white;
+
+}
+
+.container{
+
+    width:95%;
+
+    max-width:600px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+.payout-card{
+
+    background:#1c1c1c;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.4);
+
+}
+
+.payout-card h1{
+
+    text-align:center;
+
+    color:#4CAF50;
+
+}
+
+.reward-box{
+
+    background:#222;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+.reward-amount{
+
+    font-size:42px;
+
+    font-weight:bold;
+
+    color:#4CAF50;
+
+    margin:10px 0;
+
+}
+
+.security-box{
+
+    background:#16321b;
+
+    color:#7CFF9B;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+input{
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2a2a2a;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+input:focus{
+
+    outline:2px solid #4CAF50;
+
+}
+
+button{
+
+    margin-top:10px;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#4CAF50;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.2s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+button:active{
+
+    transform:translateY(2px);
+
+}
+
+     .player-stats{
+
+    background:#222;
+
+    padding:18px;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+
+    text-align:left;
+
+}
+
+.player-stats h3{
+
+    margin-top:0;
+
+    color:#4CAF50;
+
+    text-align:center;
+
+}
+
+.player-stats p{
+
+    margin:12px 0;
+
+    font-size:16px;
+
+}
+   
+   </style>
+
+</head>
+
+<body>
+<div class="container">
+
+    <div class="payout-card">
+
+        <h1>💵 Payout Center</h1>
+
+    <div class="reward-amount">
+    $<span id="rewardAmount">0.00</span>
+    </div>
+
+            <p>
+                100,000 Game Cash = $1.00
+            </p>
+
+        </div>
+        
+        <div class="player-stats">
+            
+            <div class="player-stats">
+
+        <h3>📜 Withdrawal History</h3>
+
+        <div id="historyList">
+
+         No withdrawals yet
+
+        </div>
+
+</div>
+
+    <h3>🏆 Player Profile</h3>
+
+    <p>
+        🏆 Rank:
+        <span id="playerRank">
+            
+        </span>
+    </p>
+
+    <p>
+        💰 Lifetime Earnings:
+        $<span id="lifetimeEarnings">
+           
+        </span>
+    </p>
+
+    <p>
+        📈 Total Income/sec:
+        $<span id="playerIncome">
+            
+        </span>
+    </p>
+
+</div>
+        
+
+        <div class="security-box">
+
+            🔒 Secure Withdrawal System
+
+        </div>
+
+       <form id="withdrawForm">
+
+            <h3>Account Information</h3>
+
+            <input
+            type="text"
+            placeholder="Full Name"
+            required>
+
+            <input
+            type="email"
+            placeholder="Email Address"
+            required>
+
+            <input
+            type="text"
+            placeholder="Country"
+            required>
+
+            <input
+            type="text"
+            placeholder="Bank Name"
+            required>
+
+            <input
+            type="text"
+            placeholder="Account Number"
+            required>
+
+            <input
+            type="text"
+            placeholder="Account Name"
+            required>
+            
+            <h3>Withdrawal Amount</h3>
+            
+            <p>
+            Available Reward:
+     <strong>
+           $<span id="availableReward">
+            0.00
+           </span>
+     </strong>
+            </p>
+
+<input
+type="number"
+id="withdrawAmount"
+placeholder="Enter amount ($1 - $10)"
+min="1"
+max="10"
+step="0.01">
+
+<p id="withdrawError"
+style="color:red;font-weight:bold;">
+</p>
+
+            <button type="submit">
+
+                💸 Request Withdrawal
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+   
+   
+    <script src="payout.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,474 @@
+ 
+ body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#111;
+    color:white;
+    text-align:center;
+}
+
+.container{
+    width:90%;
+    max-width:800px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    color:gold;
+}
+
+.money-box{
+    font-size:40px;
+    margin:20px;
+    font-weight:bold;
+}
+
+
+
+.shop{
+    margin-top:30px;
+}
+
+
+    .item{
+    background:#1c1c1c;
+    margin:15px;
+    padding:20px;
+    border-radius:15px;
+    border:1px solid #333;
+}
+
+.item button{
+    width:100%;
+    padding:16px;
+    font-size:18px;
+    font-weight:bold;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+
+background:linear-gradient(
+    135deg,
+    #b8860b,
+    #8b6508
+);
+
+    color:white;
+
+    transition:all 0.15s ease;
+
+    box-shadow:
+    0 5px 0 #cc7a00,
+    0 8px 15px rgba(0,0,0,0.3);
+}
+
+.stats{
+    margin-top:30px;
+    background:#222;
+    padding:20px;
+    border-radius:12px;
+}
+
+#floating-container{
+    position:relative;
+    height:50px;
+}
+
+.float-money{
+
+    position:absolute;
+ 
+    left:50%;
+
+    color:gold;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    animation:floatUp 1s forwards;
+}
+
+@keyframes floatUp{
+
+    0%{
+        opacity:1;
+        transform:translate(-50%,0);
+    }
+
+    100%{
+        opacity:0;
+        transform:translate(-50%,-60px);
+    }
+
+}
+
+ /* MOBILE RESPONSIVE */
+
+@media screen and (max-width:768px){
+
+   h1{...}
+
+   .money-box{...}
+
+   #clickBtn{...}
+
+}
+    
+
+    .money-box{
+    font-size:42px;
+    font-weight:bold;
+    background:#1a1a1a;
+    padding:20px;
+    border-radius:15px;
+    margin:20px 0;
+    border:2px solid gold;
+}
+    
+#clickBtn{
+    background:#4CAF50;
+    color:white;
+
+    border:none;
+    padding:20px 40px;
+
+    font-size:22px;
+    font-weight:bold;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    transition:all 0.2s ease;
+
+    touch-action:manipulation;
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,0.25);
+}
+
+#clickBtn:hover{
+    transform:translateY(-2px);
+}
+
+#clickBtn:active{
+    transform:translateY(2px);
+    box-shadow:
+    0 2px 6px rgba(0,0,0,0.2);
+}
+
+
+    .item{
+    background:#222;
+    margin:15px;
+    padding:20px;
+    border-radius:15px;
+    border:1px solid #333;
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+
+    .stats{
+        padding:15px;
+        font-size:16px;
+    }
+    
+
+
+
+  
+    .item button:active{
+
+    transform:translateY(5px);
+
+    box-shadow:
+    0 1px 0 #cc7a00;
+
+}
+   .item button:hover{
+
+    transform:scale(1.03);
+
+}
+
+
+.item button:active{
+    transform:scale(0.96);
+}
+
+  
+  .can-buy{
+
+    animation:pulse 1s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+        box-shadow:0 0 0 rgba(255,215,0,0);
+    }
+
+    50%{
+        transform:scale(1.05);
+        box-shadow:0 0 15px rgba(255,215,0,0.6);
+    }
+
+    100%{
+        transform:scale(1);
+        box-shadow:0 0 0 rgba(255,215,0,0);
+    }
+}
+    .sticky-money{
+    position:sticky;
+    top:10px;
+    z-index:100;
+    background:#1a1a1a;
+}
+
+  .progress-section{
+
+    margin:20px auto;
+
+    max-width:500px;
+
+}
+
+.progress-text{
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+
+}
+
+.progress-bar{
+
+    width:100%;
+
+    height:25px;
+
+    background:#2a2a2a;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    border:2px solid #444;
+
+}
+
+#progressFill{
+
+    height:100%;
+
+    width:0%;
+
+    border-radius:30px;
+
+    transition:width 0.4s ease;
+
+    background:linear-gradient(
+        90deg,
+        #4CAF50,
+        #81C784
+    );
+
+}
+
+#progressPercent{
+
+    margin-top:8px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+#progressNumbers{
+
+    color:#aaa;
+
+}
+#withdrawBtnContainer{
+
+    position:fixed;
+
+    bottom:20px;
+
+    right:20px;
+
+    z-index:999;
+
+}
+
+#withdrawBtn{
+
+    background:#4CAF50;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 20px;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,0.3);
+
+}
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.8);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:2000;
+}
+
+.modal-content{
+
+    background:#1f1f1f;
+
+    width:90%;
+    max-width:400px;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    border:2px solid #4CAF50;
+}
+
+.modal-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.modal-buttons button{
+
+    flex:1;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+} 
+
+#withdrawNow{
+
+    background:#4CAF50;
+    color:white;
+}
+
+#withdrawLater{
+
+    background:#555;
+    color:white;
+}
+
+   .withdraw-card{
+
+    display:none;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    background:#1c1c1c;
+
+    border-radius:15px;
+
+    border:1px solid #333;
+
+}
+
+.withdraw-card h3{
+
+    margin-top:0;
+
+    color:#4CAF50;
+
+}
+
+.withdraw-card button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:#4CAF50;
+
+    color:white;
+
+    transition:0.2s;
+}
+
+.withdraw-card button:hover{
+
+    opacity:0.9;
+}
+
+  .conversion-rate{
+
+    background:#2a2a2a;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    margin:10px 0;
+
+    color:#ccc;
+
+    font-size:14px;
+
+}
+
+   .error-input{
+    border:2px solid red !important;
+}
