@@ -1,4 +1,4 @@
-alert("signup.js started");
+
 import { auth, db } from "./firebase.js";
 
 import {
@@ -11,6 +11,8 @@ doc,
 setDoc
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+alert("signup.js started");
 
 document
 .getElementById("signupBtn")
