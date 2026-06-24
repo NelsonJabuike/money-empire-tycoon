@@ -27,6 +27,8 @@ const password =
 document.getElementById("password").value;
 
 try{
+  
+  alert("Before Firebase");
 
 const userCredential =
 await createUserWithEmailAndPassword(
