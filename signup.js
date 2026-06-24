@@ -15,6 +15,8 @@ document
 .getElementById("signupBtn")
 .addEventListener("click", async () => {
 
+alert("Button Clicked");
+
 const username =
 document.getElementById("username").value;
 
