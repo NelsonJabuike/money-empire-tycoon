@@ -36,6 +36,7 @@ auth,
 email,
 password
 );
+  alert("Firebase Success");
 
 const uid =
 userCredential.user.uid;
@@ -60,10 +61,16 @@ alert("Account Created!");
 window.location.href =
 "login.html";
 
-}catch(error){
-
-alert(error.message);
-
 }
 
+catch(error){
+
+alert(
+"ERROR:\n" +
+error.code +
+"\n\n" +
+error.message
+);
+
+}
 });
