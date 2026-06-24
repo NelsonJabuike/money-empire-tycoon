@@ -1,7 +1,9 @@
-alert("firebase.js started");
+
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+alert("firebase.js started");
 
 alert("firebase-app imported");
 
