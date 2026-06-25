@@ -1,8 +1,4 @@
-alert(
-localStorage.getItem(
-"currentUser"
-)
-);
+alert("script.js loaded");
 
 let money = 0; //testing only
 
