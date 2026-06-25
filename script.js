@@ -583,3 +583,20 @@ window.location.href =
 
 });
 
+
+window.buyWorker = buyWorker;
+window.buyFactory = buyFactory;
+window.buyBank = buyBank;
+
+function logout(){
+
+localStorage.removeItem(
+"currentUser"
+);
+
+window.location.href =
+"login.html";
+
+}
+
+window.logout = logout;
