@@ -1,5 +1,6 @@
-     
-     import { auth }
+ alert("login.js loaded");    
+
+import { auth }
 from "./firebase.js";
 
 import {
