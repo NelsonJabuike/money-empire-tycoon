@@ -12,6 +12,35 @@ from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 const uid =
 localStorage.getItem("currentUser");
 
+if(!uid){
+
+alert("No User Logged In");
+
+window.location.href =
+"login.html";
+
+}
+
+
+let money = 0; //testing only
+
+let workers = 0;
+let factories = 0;
+let banks = 0;
+
+let workerCost = 100;
+let factoryCost = 20000;
+let bankCost = 100000;
+let level = 1;
+
+let achievement =
+"Getting Started";
+
+let withdrawUnlocked = false;
+let totalWithdrawn = 0;
+let withdrawalHistory = [];
+
+
 const userRef =
 doc(db, "users", uid);
 
@@ -49,37 +78,13 @@ else{
 
 }
 
-if(!uid){
-
-alert("No User Logged In");
-
-window.location.href =
-"login.html";
-
-}
 
 const logoutBtn =
 document.getElementById("logoutBtn");
 
 
 
-let money = 0; //testing only
 
-let workers = 0;
-let factories = 0;
-let banks = 0;
-
-let workerCost = 100;
-let factoryCost = 20000;
-let bankCost = 100000;
-let level = 1;
-
-let achievement =
-"Getting Started";
-
-let withdrawUnlocked = false;
-let totalWithdrawn = 0;
-let withdrawalHistory = [];
 
 
 const moneyDisplay = document.getElementById("money");
