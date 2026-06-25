@@ -243,6 +243,23 @@ if(buttons[2] && money >= bankCost)
  function saveGame(){
 
    localStorage.setItem("moneyGame",
+
+async function saveToFirestore(){
+
+await updateDoc(
+doc(db,"users",uid),
+{
+money,
+workers,
+factories,
+banks,
+level,
+achievement
+}
+);
+
+}
+                        
     JSON.stringify({
 
         money,
