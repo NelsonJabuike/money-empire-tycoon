@@ -12,6 +12,28 @@ from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 const uid =
 localStorage.getItem("currentUser");
 
+const userRef =
+doc(db, "users", uid);
+
+const userSnap =
+await getDoc(userRef);
+
+if(userSnap.exists()){
+
+    alert(
+    JSON.stringify(
+    userSnap.data(),
+    null,
+    2
+    ));
+
+}
+else{
+
+    alert("User document not found");
+
+}
+
 if(!uid){
 
 alert("No User Logged In");
