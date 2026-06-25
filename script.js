@@ -20,12 +20,27 @@ await getDoc(userRef);
 
 if(userSnap.exists()){
 
-    alert(
-    JSON.stringify(
-    userSnap.data(),
-    null,
-    2
-    ));
+    const data =
+    userSnap.data();
+
+    money =
+    data.money || 0;
+
+    workers =
+    data.workers || 0;
+
+    factories =
+    data.factories || 0;
+
+    banks =
+    data.banks || 0;
+
+    level =
+    data.level || 1;
+
+    achievement =
+    data.achievement ||
+    "Getting Started";
 
 }
 else{
