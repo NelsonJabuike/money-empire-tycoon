@@ -24,7 +24,7 @@ window.location.href =
 const logoutBtn =
 document.getElementById("logoutBtn");
 
-alert(logoutBtn);
+
 
 let money = 0; //testing only
 
