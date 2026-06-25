@@ -13,7 +13,6 @@ getFirestore
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-alert("firebase.js started");
 
 const firebaseConfig = {
   apiKey: "AIzaSyAJS-efkpoLRcRfLDtINNIUOetj5bPSu80",
@@ -29,4 +28,3 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-alert("Firebase initialized");
