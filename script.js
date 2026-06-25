@@ -1,5 +1,10 @@
-    
-    let money = 0; //testing only
+alert(
+localStorage.getItem(
+"currentUser"
+)
+);
+
+let money = 0; //testing only
 
 let workers = 0;
 let factories = 0;
