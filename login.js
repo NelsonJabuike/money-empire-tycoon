@@ -1,4 +1,4 @@
- alert("login.js loaded");    
+ alert("login.js loaded");
 
 import { auth }
 from "./firebase.js";
@@ -11,6 +11,8 @@ from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 document
 .getElementById("loginBtn")
 .addEventListener("click", async () => {
+
+alert("Login Button Clicked");
 
 const email =
 document.getElementById("email").value;
@@ -39,10 +41,10 @@ userCredential.user.uid
 
 alert(
 "Saved:\n" +
-localStorage.getItem(
-"currentUser"
-)
+localStorage.getItem("currentUser")
 );
+
+alert("Login Successful!");
 
 window.location.href =
 "index.html";
@@ -57,3 +59,5 @@ error.message
 );
 
 }
+
+});
