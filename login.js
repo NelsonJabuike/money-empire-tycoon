@@ -26,12 +26,22 @@ email,
 password
 );
 
+alert(
+"UID:\n" +
+userCredential.user.uid
+);
+
 localStorage.setItem(
 "currentUser",
 userCredential.user.uid
 );
 
-alert("Login Successful!");
+alert(
+"Saved:\n" +
+localStorage.getItem(
+"currentUser"
+)
+);
 
 window.location.href =
 "index.html";
@@ -46,5 +56,3 @@ error.message
 );
 
 }
-
-});
