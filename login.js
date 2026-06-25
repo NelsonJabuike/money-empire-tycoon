@@ -19,10 +19,16 @@ document.getElementById("password").value;
 
 try{
 
+const userCredential =
 await signInWithEmailAndPassword(
 auth,
 email,
 password
+);
+
+localStorage.setItem(
+"currentUser",
+userCredential.user.uid
 );
 
 alert("Login Successful!");
