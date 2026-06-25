@@ -7,15 +7,18 @@ getDoc
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-alert("script.js loaded");
 
 const uid =
 localStorage.getItem("currentUser");
 
-alert(
-"UID from localStorage:\n" +
-uid
-);
+if(!uid){
+
+alert("No User Logged In");
+
+window.location.href =
+"login.html";
+
+}
 
 let money = 0; //testing only
 
