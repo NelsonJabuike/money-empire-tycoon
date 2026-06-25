@@ -3,9 +3,17 @@
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 
-alert("firebase.js started");
+import {
+getAuth
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-alert("firebase-app imported");
+import {
+getFirestore
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+alert("firebase.js started");
 
 const firebaseConfig = {
   apiKey: "AIzaSyAJS-efkpoLRcRfLDtINNIUOetj5bPSu80",
@@ -18,6 +26,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-alert("Firebase initialized");
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 
-export { app };
+alert("Firebase initialized");
