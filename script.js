@@ -1,4 +1,21 @@
+import { db }
+from "./firebase.js";
+
+import {
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
 alert("script.js loaded");
+
+const uid =
+localStorage.getItem("currentUser");
+
+alert(
+"UID from localStorage:\n" +
+uid
+);
 
 alert(
 localStorage.getItem(
