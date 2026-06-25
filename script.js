@@ -233,6 +233,9 @@ if(buttons[2] && money >= bankCost)
    updateProgress();
    updateReward();
    checkWithdraw();
+
+    saveGame();
+    saveToFirestore();
 }  
   
   loadGame();
@@ -242,24 +245,7 @@ if(buttons[2] && money >= bankCost)
          
  function saveGame(){
 
-   localStorage.setItem("moneyGame",
-
-async function saveToFirestore(){
-
-await updateDoc(
-doc(db,"users",uid),
-{
-money,
-workers,
-factories,
-banks,
-level,
-achievement
-}
-);
-
-}
-                        
+   localStorage.setItem("moneyGame",                    
     JSON.stringify({
 
         money,
@@ -275,6 +261,22 @@ achievement
         totalWithdrawn,
         withdrawalHistory
     })); 
+}
+
+async function saveToFirestore(){
+
+await updateDoc(
+doc(db,"users",uid),
+{
+money,
+workers,
+factories,
+banks,
+level,
+achievement
+}
+);
+
 }
 
     function loadGame(){
