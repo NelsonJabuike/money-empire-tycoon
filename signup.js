@@ -12,13 +12,9 @@ setDoc
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-alert("signup.js started");
-
 document
 .getElementById("signupBtn")
 .addEventListener("click", async () => {
-
-alert("Button Clicked");
 
 const username =
 document.getElementById("username").value;
@@ -30,8 +26,6 @@ const password =
 document.getElementById("password").value;
 
 try{
-  
-  alert("Before Firebase");
 
 const userCredential =
 await createUserWithEmailAndPassword(
@@ -39,8 +33,7 @@ auth,
 email,
 password
 );
-  alert("Firebase Success");
-
+  
 const uid =
 userCredential.user.uid;
 
