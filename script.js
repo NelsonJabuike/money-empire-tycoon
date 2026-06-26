@@ -49,6 +49,9 @@ const DAILY_REWARD = 1000;
 const rewardBtn =
 document.getElementById("dailyRewardBtn");
 
+const achievementBtn =
+document.getElementById("claimAchievementBtn");
+
 const userRef =
 doc(db, "users", uid);
 
@@ -82,6 +85,9 @@ if(userSnap.exists()){
 
     lastDailyReward =
     data.lastDailyReward || 0;
+
+    claimedAchievements =
+    data.claimedAchievements || [];
 
     document.getElementById("welcomeUser")
     .textContent =
@@ -369,6 +375,10 @@ claimedAchievements
         
         lastDailyReward =
         save.lastDailyReward || 0;
+
+        claimedAchievements =
+        save.claimedAchievements || [];
+ 
     }
 
 
@@ -733,6 +743,11 @@ rewardBtn.addEventListener(
 claimDailyReward
 );
 
+achievementBtn.addEventListener(
+"click",
+claimAchievementReward
+);
+
 async function claimDailyReward(){
 
 const now = Date.now();
@@ -762,6 +777,14 @@ alert(
 "🎉 You received $" +
 DAILY_REWARD +
 "!"
+);
+
+}
+
+function claimAchievementReward(){
+
+alert(
+"This feature is coming in the next step."
 );
 
 }
