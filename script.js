@@ -262,6 +262,26 @@ if(buttons[2] && money >= bankCost)
    updateReward();
    checkWithdraw();
 
+if(
+Date.now() - lastDailyReward <
+86400000
+){
+
+rewardBtn.disabled = true;
+
+rewardBtn.textContent =
+"✅ Claimed";
+
+}
+else{
+
+rewardBtn.disabled = false;
+
+rewardBtn.textContent =
+"🎁 Claim Daily Reward";
+
+}
+    
     saveGame();
     
 }  
