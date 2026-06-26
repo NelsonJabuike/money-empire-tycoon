@@ -105,7 +105,9 @@ checkAchievements();
 update();
 
 saveToFirestore();
-     updat
+
+});
+    
     function buyWorker(){
 
     if(money >= workerCost){
