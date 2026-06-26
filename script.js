@@ -230,7 +230,6 @@ function update(){
     document.getElementById("bankCost")
       .textContent = bankCost;
 
-    saveGame();
     document.getElementById("level")
       .textContent = level;
 
