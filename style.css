@@ -472,3 +472,19 @@ background:linear-gradient(
    .error-input{
     border:2px solid red !important;
 }
+
+#loadingScreen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    z-index: 9999;
+}
