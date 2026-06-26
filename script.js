@@ -40,7 +40,6 @@ let withdrawUnlocked = false;
 let totalWithdrawn = 0;
 let withdrawalHistory = [];
 
-alert("Reached Firestore");
 
 const userRef =
 doc(db, "users", uid);
@@ -48,7 +47,6 @@ doc(db, "users", uid);
 const userSnap =
 await getDoc(userRef);
 
-alert("Firestore Loaded");
 
 if(userSnap.exists()){
 
@@ -240,7 +238,7 @@ if(buttons[2] && money >= bankCost)
    checkWithdraw();
 
     saveGame();
-    saveToFirestore();
+    
 }  
   
   loadGame();
