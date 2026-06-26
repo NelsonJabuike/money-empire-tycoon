@@ -42,6 +42,8 @@ let withdrawalHistory = [];
 
 let lastDailyReward = 0;
 
+let claimedAchievements = [];
+
 const DAILY_REWARD = 1000;
 
 const rewardBtn =
@@ -307,7 +309,8 @@ rewardBtn.textContent =
         withdrawUnlocked,
         totalWithdrawn,
         withdrawalHistory,
-        lastDailyReward
+        lastDailyReward,
+        claimedAchievements
     })); 
 }
 
@@ -328,7 +331,8 @@ achievement,
 withdrawUnlocked,
 totalWithdrawn,
 withdrawalHistory,
-lastDailyReward  
+lastDailyReward,
+claimedAchievements
 }
 );
 
