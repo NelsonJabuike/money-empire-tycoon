@@ -44,6 +44,9 @@ let lastDailyReward = 0;
 
 const DAILY_REWARD = 1000;
 
+const rewardBtn =
+document.getElementById("dailyRewardBtn");
+
 const userRef =
 doc(db, "users", uid);
 
@@ -74,6 +77,9 @@ if(userSnap.exists()){
     achievement =
     data.achievement ||
     "Getting Started";
+
+    lastDailyReward =
+    data.lastDailyReward || 0;
 
     document.getElementById("welcomeUser")
     .textContent =
@@ -281,7 +287,8 @@ if(buttons[2] && money >= bankCost)
         achievement,
         withdrawUnlocked,
         totalWithdrawn,
-        withdrawalHistory
+        withdrawalHistory,
+        lastDailyReward
     })); 
 }
 
@@ -301,7 +308,8 @@ level,
 achievement,
 withdrawUnlocked,
 totalWithdrawn,
-withdrawalHistory
+withdrawalHistory,
+lastDailyReward  
 }
 );
 
@@ -335,6 +343,9 @@ withdrawalHistory
         
         withdrawalHistory =
         save.withdrawalHistory || [];
+        
+        lastDailyReward =
+        save.lastDailyReward || 0;
     }
 
 
@@ -693,3 +704,41 @@ window.location.href =
 }
 
 window.logout = logout;
+
+rewardBtn.addEventListener(
+"click",
+claimDailyReward
+);
+
+async function claimDailyReward(){
+
+const now = Date.now();
+
+if(
+now - lastDailyReward <
+86400000
+){
+
+alert(
+"Daily reward already claimed.\nCome back tomorrow."
+);
+
+return;
+
+}
+
+money += DAILY_REWARD;
+
+lastDailyReward = now;
+
+update();
+
+await saveToFirestore();
+
+alert(
+"🎉 You received $" +
+DAILY_REWARD +
+"!"
+);
+
+}
