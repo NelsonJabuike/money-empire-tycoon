@@ -279,8 +279,14 @@ money,
 workers,
 factories,
 banks,
+workerCost,
+factoryCost,
+bankCost,
 level,
-achievement
+achievement,
+withdrawUnlocked,
+totalWithdrawn,
+withdrawalHistory
 }
 );
 
