@@ -104,9 +104,8 @@ checkAchievements();
 
 update();
 
-});
-
-
+saveToFirestore();
+     updat
     function buyWorker(){
 
     if(money >= workerCost){
@@ -121,6 +120,7 @@ update();
         showPurchase("👷 Worker Hired!");
 
         update();
+        saveToFirestore();
     }
 }
 
@@ -139,6 +139,7 @@ function buyFactory(){
         showPurchase("🏭 Factory Built!"); 
         
         update();
+        saveToFirestore();
     }
     
      
@@ -157,6 +158,7 @@ function buyBank(){
          showPurchase("🏦 Bank Purchased!");
 
         update();
+        saveToFirestore();
     }
     
 }
