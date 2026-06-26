@@ -46,6 +46,32 @@ let claimedAchievements = [];
 
 const DAILY_REWARD = 1000;
 
+const ACHIEVEMENT_REWARDS = {
+
+"🌱 Beginner":10,
+
+"🥉 Bronze Earner":50,
+
+"🥈 Silver Earner":100,
+
+"🥇 Gold Earner":1000,
+
+"💎 Platinum Investor":5000,
+
+"👑 Business Owner":10000,
+
+"🏦 Financial Expert":50000,
+
+"💰 Millionaire":100000,
+
+"🚀 Tycoon":500000,
+
+"🌎 Business Mogul":1000000,
+
+"👑 Empire Builder":5000000
+
+}; 
+
 const rewardBtn =
 document.getElementById("dailyRewardBtn");
 
@@ -286,6 +312,25 @@ rewardBtn.disabled = false;
 
 rewardBtn.textContent =
 "🎁 Claim Daily Reward";
+
+} 
+
+if(
+claimedAchievements.includes(achievement)
+){
+
+achievementBtn.disabled = true;
+
+achievementBtn.textContent =
+"✅ Achievement Claimed";
+
+}
+else{
+
+achievementBtn.disabled = false;
+
+achievementBtn.textContent =
+"🎁 Claim Achievement Reward";
 
 }
     
@@ -781,10 +826,42 @@ DAILY_REWARD +
 
 }
 
-function claimAchievementReward(){
+async function claimAchievementReward(){
+
+if(claimedAchievements.includes(achievement)){
 
 alert(
-"This feature is coming in the next step."
+"You already claimed this achievement reward."
+);
+
+return;
+
+}
+
+const reward =
+ACHIEVEMENT_REWARDS[achievement];
+
+if(!reward){
+
+alert(
+"No reward available."
+);
+
+return;
+
+}
+
+money += reward;
+
+claimedAchievements.push(achievement);
+
+update();
+
+await saveToFirestore();
+
+alert(
+"🎉 Achievement Reward Claimed!\n+$" +
+reward.toLocaleString()
 );
 
 }
