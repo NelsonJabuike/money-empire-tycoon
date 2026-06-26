@@ -71,6 +71,11 @@ if(userSnap.exists()){
     achievement =
     data.achievement ||
     "Getting Started";
+
+    document.getElementById("welcomeUser")
+    .textContent =
+    "👋 Welcome, " +
+    (data.username || "Player");
     
  document.getElementById("loadingScreen")
 .style.display = "none";   
