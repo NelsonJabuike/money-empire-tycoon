@@ -104,7 +104,7 @@ checkAchievements();
 
 update();
 
-saveToFirestore();
+
 
 });
     
@@ -122,7 +122,7 @@ saveToFirestore();
         showPurchase("👷 Worker Hired!");
 
         update();
-        saveToFirestore();
+        
     }
 }
 
@@ -141,7 +141,7 @@ function buyFactory(){
         showPurchase("🏭 Factory Built!"); 
         
         update();
-        saveToFirestore();
+        
     }
     
      
@@ -160,7 +160,7 @@ function buyBank(){
          showPurchase("🏦 Bank Purchased!");
 
         update();
-        saveToFirestore();
+        
     }
     
 }
@@ -174,6 +174,10 @@ function incomePerSecond(){
         banks * 100
     );
 }
+
+setInterval(() => {
+    saveToFirestore();
+}, 5000);
 
 setInterval(() => {
 
