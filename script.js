@@ -40,6 +40,9 @@ let withdrawUnlocked = false;
 let totalWithdrawn = 0;
 let withdrawalHistory = [];
 
+let lastDailyReward = 0;
+
+const DAILY_REWARD = 1000;
 
 const userRef =
 doc(db, "users", uid);
