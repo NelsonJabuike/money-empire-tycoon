@@ -1,4 +1,6 @@
 
+import { db }
+from "./firebase.js";
 
 import {
 doc,
@@ -38,12 +40,15 @@ let withdrawUnlocked = false;
 let totalWithdrawn = 0;
 let withdrawalHistory = [];
 
+alert("Reached Firestore");
 
 const userRef =
 doc(db, "users", uid);
 
 const userSnap =
 await getDoc(userRef);
+
+alert("Firestore Loaded");
 
 if(userSnap.exists()){
 
