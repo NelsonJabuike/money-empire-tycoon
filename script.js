@@ -819,14 +819,17 @@ snapshot.forEach(player=>{
 
 const data = player.data();
 
+const isYou =
+player.id === uid;
+
 const you =
-player.id === uid ?
-" <span class='youBadge'>(YOU)</span>" :
+isYou ?
+" <span class='youBadge'>YOU</span>" :
 "";
 
 leaderboard.innerHTML += `
 
-<li>
+<li class="${isYou ? 'myRank' : ''}">
 
 <span>
 
