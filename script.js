@@ -991,6 +991,35 @@ popup.classList.remove("show");
 
 }
 
+function showNotification(message,type="success"){
+
+const container =
+document.getElementById("notificationContainer");
+
+const notification =
+document.createElement("div");
+
+notification.className =
+"notification";
+
+if(type !== "success"){
+
+notification.classList.add(type);
+
+}
+
+notification.textContent = message;
+
+container.appendChild(notification);
+
+setTimeout(()=>{
+
+notification.remove();
+
+},3000);
+
+}
+
 function highlightCurrentAchievement(){
 
 const ids = [
