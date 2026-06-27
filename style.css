@@ -500,6 +500,17 @@ margin-top:15px;
 }
 
 #leaderboard li{
+#leaderboard{
+
+list-style:none;
+
+padding:0;
+
+margin-top:15px;
+
+}
+
+#leaderboard li{
 
 display:flex;
 
@@ -507,47 +518,57 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:12px;
+padding:16px;
 
-margin:8px 0;
+margin-bottom:12px;
 
-background:#1d1d1d;
+background:#2a2a2a;
 
-border-radius:10px;
+border-left:6px solid gold;
 
-border-left:4px solid gold;
+border-radius:18px;
 
-font-weight:bold;
+transition:.25s;
 
-font-size:16px;
-
-color:white;
-
-transition:0.3s;
+box-shadow:0 4px 12px rgba(0,0,0,.35);
 
 }
 
 #leaderboard li:hover{
 
-transform:scale(1.02);
+transform:translateY(-2px);
 
-background:#2b2b2b;
-
-}
-
-#leaderboard .rank{
-
-color:gold;
-
-font-size:18px;
-
-margin-right:10px;
+box-shadow:0 8px 18px rgba(255,215,0,.35);
 
 }
 
-#leaderboard .money{
+#leaderboard span{
 
-color:#00ff7f;
+display:flex;
+
+flex-direction:column;
+
+line-height:1.5;
+
+}
+
+#leaderboard small{
+
+color:#cfcfcf;
+
+font-size:13px;
+
+margin-top:4px;
+
+}
+
+.money{
+
+font-size:22px;
+
+font-weight:bold;
+
+color:#00ff88;
 
 }
 
