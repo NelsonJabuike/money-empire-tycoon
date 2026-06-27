@@ -5,7 +5,12 @@ from "./firebase.js";
 import {
 doc,
 getDoc,
-updateDoc
+updateDoc,
+collection,
+getDocs,
+query,
+orderBy,
+limit
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
@@ -339,9 +344,11 @@ achievementBtn.textContent =
 }  
   
   loadGame();
-  checkLevel();
-  checkAchievements();
-  update();
+checkLevel();
+checkAchievements();
+update();
+
+loadLeaderboard();
          
  function saveGame(){
 
@@ -782,6 +789,69 @@ window.location.href =
 }
 
 window.logout = logout;
+
+async function loadLeaderboard(){
+
+const leaderboard =
+document.getElementById("leaderboard");
+
+leaderboard.innerHTML =
+"<li>Loading...</li>";
+
+const q = query(
+
+collection(db,"users"),
+
+orderBy("money","desc"),
+
+limit(10)
+
+);
+
+const snapshot =
+await getDocs(q);
+
+leaderboard.innerHTML = "";
+
+let rank = 1;
+
+snapshot.forEach(player=>{
+
+const data = player.data();
+
+leaderboard.innerHTML += `
+
+<li>
+
+<span>
+
+${rank}. ${data.username || "Player"}
+
+<br>
+
+<small>
+
+${data.achievement || "Getting Started"}
+
+</small>
+
+</span>
+
+<span class="money">
+
+$${Math.floor(data.money || 0).toLocaleString()}
+
+</span>
+
+</li>
+
+`;
+
+rank++;
+
+});
+
+}
 
 rewardBtn.addEventListener(
 "click",
