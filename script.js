@@ -323,6 +323,9 @@ rewardBtn.textContent =
 
 } 
 
+const achievementReward =
+ACHIEVEMENT_REWARDS[achievement] || 0;
+
 if(
 claimedAchievements.includes(achievement)
 ){
@@ -338,7 +341,7 @@ else{
 achievementBtn.disabled = false;
 
 achievementBtn.textContent =
-"🎁 Claim Achievement Reward";
+`🎁 Claim $${achievementReward.toLocaleString()} Reward`;
 
 }
     
