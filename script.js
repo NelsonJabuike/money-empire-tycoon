@@ -819,15 +819,28 @@ snapshot.forEach(player=>{
 
 const data = player.data();
 
+const you =
+player.id === uid ?
+" <span class='youBadge'>(YOU)</span>" :
+"";
+
 leaderboard.innerHTML += `
 
 <li>
 
 <span>
 
-${rank}. ${data.username || "Player"}
-
-<br>
+${
+rank==1 ? "🥇" :
+rank==2 ? "🥈" :
+rank==3 ? "🥉" :
+"🏅"
+}
+${data.username || "Player"}${you}
+const you =
+player.id === uid ?
+" <span class='youBadge'>(YOU)</span>" :
+"";<br>
 
 <small>
 
