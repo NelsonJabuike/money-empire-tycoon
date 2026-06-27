@@ -798,3 +798,90 @@ box-shadow:
 0 0 18px rgba(205,127,50,.5);
 
 }
+
+.playerCard{
+
+background:linear-gradient(
+135deg,
+#2d2d2d,
+#181818
+);
+
+border:2px solid gold;
+
+border-radius:20px;
+
+padding:20px;
+
+margin:20px 0;
+
+box-shadow:
+0 0 20px rgba(255,215,0,.25);
+
+}
+
+.playerCard h2{
+
+margin:0;
+
+color:white;
+
+font-size:24px;
+
+}
+
+.playerStats{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+margin-top:18px;
+
+}
+
+.playerBadge{
+
+background:#303030;
+
+padding:12px 18px;
+
+border-radius:14px;
+
+border:1px solid #555;
+
+font-weight:bold;
+
+min-width:140px;
+
+box-shadow:
+0 3px 10px rgba(0,0,0,.35);
+
+transition:.25s;
+
+}
+
+.playerBadge:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+0 0 15px rgba(255,215,0,.4);
+
+}
+
+.playerBadge span{
+
+display:block;
+
+margin-top:6px;
+
+font-size:18px;
+
+color:#FFD700;
+
+}
