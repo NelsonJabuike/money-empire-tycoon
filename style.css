@@ -1098,3 +1098,43 @@ opacity:.75;
 
  }
 
+.currentAchievement{
+
+background:linear-gradient(
+135deg,
+rgba(255,215,0,.18),
+rgba(255,255,255,.05)
+);
+
+border-left:6px solid gold;
+
+border-radius:12px;
+
+padding:10px 15px;
+
+font-weight:bold;
+
+box-shadow:
+0 0 18px rgba(255,215,0,.45);
+
+animation:achievementGlow 1.5s infinite alternate;
+
+}
+
+@keyframes achievementGlow{
+
+from{
+
+box-shadow:
+0 0 8px rgba(255,215,0,.3);
+
+}
+
+to{
+
+box-shadow:
+0 0 22px rgba(255,215,0,.8);
+
+}
+
+}
