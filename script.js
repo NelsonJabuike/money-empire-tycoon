@@ -80,6 +80,9 @@ const ACHIEVEMENT_REWARDS = {
 const rewardBtn =
 document.getElementById("dailyRewardBtn");
 
+const rewardTimer =
+document.getElementById("dailyRewardTimer");
+
 const achievementBtn =
 document.getElementById("claimAchievementBtn");
 
@@ -348,9 +351,13 @@ checkLevel();
 checkAchievements();
 update();
 
+updateDailyRewardTimer();
+
 loadLeaderboard();
 
 setInterval(loadLeaderboard,10000);
+
+setInterval(updateDailyRewardTimer,1000);
          
  function saveGame(){
 
@@ -948,4 +955,41 @@ alert(
 reward.toLocaleString()
 );
 
+}
+
+function updateDailyRewardTimer(){
+
+const remaining =
+86400000 - (Date.now() - lastDailyReward);
+
+if(remaining <= 0){
+
+rewardTimer.textContent =
+"🎉 Reward Ready!";
+
+rewardBtn.disabled = false;
+
+rewardBtn.textContent =
+"🎁 Claim Daily Reward";
+
+return;
+
+}
+
+const hours =
+Math.floor(remaining / 3600000);
+
+const minutes =
+Math.floor((remaining % 3600000) / 60000);
+
+const seconds =
+Math.floor((remaining % 60000) / 1000);
+
+rewardTimer.textContent =
+`⏳ Next reward in ${hours}h ${minutes}m ${seconds}s`;
+
+rewardBtn.disabled = true;
+
+rewardBtn.textContent =
+"🔒 Daily Reward Claimed";
 }
