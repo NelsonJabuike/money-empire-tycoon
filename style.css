@@ -18,13 +18,6 @@ h1{
     color:gold;
 }
 
-.money-box{
-    font-size:40px;
-    margin:20px;
-    font-weight:bold;
-}
-
-
 
 .shop{
     margin-top:30px;
@@ -118,13 +111,47 @@ background:linear-gradient(
     
 
     .money-box{
-    font-size:42px;
-    font-weight:bold;
-    background:#1a1a1a;
-    padding:20px;
-    border-radius:15px;
-    margin:20px 0;
-    border:2px solid gold;
+
+background:linear-gradient(
+135deg,
+#2d2d2d,
+#171717
+);
+
+border:3px solid gold;
+
+border-radius:22px;
+
+padding:22px;
+
+margin:20px 0;
+
+font-size:42px;
+
+font-weight:bold;
+
+color:#FFD700;
+
+box-shadow:
+0 0 25px rgba(255,215,0,.35);
+
+position:sticky;
+
+top:10px;
+
+z-index:999;
+
+transition:.25s;
+
+}
+
+.money-box:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+0 0 40px rgba(255,215,0,.55);
+
 }
     
 #clickBtn{
