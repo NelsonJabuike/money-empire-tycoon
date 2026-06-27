@@ -302,6 +302,7 @@ if(buttons[2] && money >= bankCost)
    updateProgress();
    updateReward();
    checkWithdraw();
+   highlightCurrentAchievement();
 
 if(
 Date.now() - lastDailyReward <
@@ -957,6 +958,80 @@ alert(
 "🎉 Achievement Reward Claimed!\n+$" +
 reward.toLocaleString()
 );
+
+}
+
+function highlightCurrentAchievement(){
+
+const ids = [
+
+"achBeginner",
+
+"achBronze",
+
+"achSilver",
+
+"achGold",
+
+"achPlatinum",
+
+"achBusiness",
+
+"achExpert",
+
+"achMillionaire",
+
+"achTycoon",
+
+"achMogul",
+
+"achEmpire"
+
+];
+
+ids.forEach(id=>{
+
+document
+.getElementById(id)
+.classList.remove("currentAchievement");
+
+});
+
+const map = {
+
+"🌱 Beginner":"achBeginner",
+
+"🥉 Bronze Earner":"achBronze",
+
+"🥈 Silver Earner":"achSilver",
+
+"🥇 Gold Earner":"achGold",
+
+"💎 Platinum Investor":"achPlatinum",
+
+"👑 Business Owner":"achBusiness",
+
+"🏦 Financial Expert":"achExpert",
+
+"💰 Millionaire":"achMillionaire",
+
+"🚀 Tycoon":"achTycoon",
+
+"🌎 Business Mogul":"achMogul",
+
+"👑 Empire Builder":"achEmpire"
+
+};
+
+const currentId = map[achievement];
+
+if(currentId){
+
+document
+.getElementById(currentId)
+.classList.add("currentAchievement");
+
+}
 
 }
 
