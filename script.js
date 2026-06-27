@@ -349,6 +349,8 @@ checkAchievements();
 update();
 
 loadLeaderboard();
+
+setInterval(loadLeaderboard,10000);
          
  function saveGame(){
 
