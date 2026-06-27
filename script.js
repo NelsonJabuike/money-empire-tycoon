@@ -839,11 +839,7 @@ rank==2 ? "🥈" :
 rank==3 ? "🥉" :
 "🏅"
 }
-${data.username || "Player"}${you}
-const you =
-player.id === uid ?
-" <span class='youBadge'>(YOU)</span>" :
-"";<br>
+${data.username || "Player"}${you}<br> 
 
 <small>
 
