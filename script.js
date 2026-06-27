@@ -40,6 +40,8 @@ let level = 1;
 
 let achievement =
 "Getting Started";
+let previousAchievement =
+"Getting Started";
 
 let withdrawUnlocked = false;
 let totalWithdrawn = 0;
@@ -543,6 +545,8 @@ function checkLevel(){
 
 function checkAchievements(){
 
+    previousAchievement = achievement;
+    
     if(money >= 10){
         achievement = "🌱 Beginner";
     }
@@ -586,6 +590,12 @@ function checkAchievements(){
     if(money >= 1000000000){
         achievement = "👑 Empire Builder";
     }
+
+    if(previousAchievement !== achievement){
+
+    showAchievementPopup(achievement);
+
+}
 
 }
      function showPurchase(text){
@@ -958,6 +968,26 @@ alert(
 "🎉 Achievement Reward Claimed!\n+$" +
 reward.toLocaleString()
 );
+
+}
+
+function showAchievementPopup(text){
+
+const popup =
+document.getElementById("achievementPopup");
+
+const popupText =
+document.getElementById("achievementPopupText");
+
+popupText.textContent = text;
+
+popup.classList.add("show");
+
+setTimeout(()=>{
+
+popup.classList.remove("show");
+
+},3000);
 
 }
 
