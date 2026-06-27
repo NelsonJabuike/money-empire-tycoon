@@ -1002,4 +1002,99 @@ box-shadow:0 0 8px rgba(0,255,0,.3);
 }
 
 }
+.achievementRewardCard{
+
+margin:20px 0;
+
+padding:20px;
+
+background:linear-gradient(
+135deg,
+#2d2d2d,
+#1b1b1b
+);
+
+border:2px solid gold;
+
+border-radius:18px;
+
+box-shadow:
+0 0 18px rgba(255,215,0,.25);
+
+}
+
+.achievementRewardCard h3{
+
+margin-top:0;
+
+color:#FFD700;
+
+font-size:24px;
+
+}
+
+.achievementRewardCard p{
+
+color:#ddd;
+
+margin:15px 0;
+
+font-size:16px;
+
+}
+#claimAchievementBtn{
+
+width:100%;
+
+padding:16px;
+
+font-size:18px;
+
+font-weight:bold;
+
+border:none;
+
+border-radius:16px;
+
+cursor:pointer;
+
+background:linear-gradient(
+135deg,
+#FFD700,
+#FF9800
+);
+
+color:white;
+
+transition:.25s;
+
+box-shadow:
+0 6px 18px rgba(255,165,0,.4);
+
+}
+
+#claimAchievementBtn:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+0 10px 22px rgba(255,165,0,.55);
+
+}
+
+#claimAchievementBtn:disabled{
+
+background:linear-gradient(
+135deg,
+#666,
+#444
+);
+
+box-shadow:none;
+
+cursor:not-allowed;
+
+opacity:.75;
+
+ }
 
