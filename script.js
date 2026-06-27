@@ -972,6 +972,8 @@ rewardBtn.disabled = false;
 rewardBtn.textContent =
 "🎁 Claim Daily Reward";
 
+rewardBtn.classList.add("rewardReady");
+
 return;
 
 }
@@ -992,4 +994,5 @@ rewardBtn.disabled = true;
 
 rewardBtn.textContent =
 "🔒 Daily Reward Claimed";
+rewardBtn.classList.remove("rewardReady");
 }
