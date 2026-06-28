@@ -306,7 +306,15 @@ if(buttons[2] && money >= bankCost)
    checkWithdraw();
    highlightCurrentAchievement();
 
-if(
+if(level < 4){
+
+rewardBtn.disabled = true;
+
+rewardBtn.textContent =
+"🔒 Unlocks at Level 4";
+
+}
+else if(
 Date.now() - lastDailyReward <
 86400000
 ){
@@ -324,7 +332,7 @@ rewardBtn.disabled = false;
 rewardBtn.textContent =
 "🎁 Claim Daily Reward";
 
-} 
+}
 
 const achievementReward =
 ACHIEVEMENT_REWARDS[achievement] || 0;
@@ -935,8 +943,9 @@ async function claimAchievementReward(){
 
 if(claimedAchievements.includes(achievement)){
 
-alert(
-"You already claimed this achievement reward."
+showNotification(
+"🏆 Achievement reward already claimed.",
+"warning"
 );
 
 return;
@@ -948,8 +957,9 @@ ACHIEVEMENT_REWARDS[achievement];
 
 if(!reward){
 
-alert(
-"No reward available."
+showNotification(
+"⚠ No reward available yet.",
+"warning"
 );
 
 return;
@@ -964,8 +974,8 @@ update();
 
 await saveToFirestore();
 
-alert(
-"🎉 Achievement Reward Claimed!\n+$" +
+showNotification(
+"🏆 Achievement Reward +$" +
 reward.toLocaleString()
 );
 
