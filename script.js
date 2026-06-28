@@ -383,7 +383,6 @@ achievementBtn.textContent =
     
 }  
   
-  loadGame();
 checkLevel();
 checkAchievements();
 update();
