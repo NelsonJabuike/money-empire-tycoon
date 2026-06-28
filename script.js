@@ -313,6 +313,10 @@ rewardBtn.disabled = true;
 rewardBtn.textContent =
 "🔒 Unlocks at Level 4";
 
+document.getElementById("dailyRewardInfo")
+.textContent =
+`Reach Level 4 to unlock Daily Rewards. (Level ${level}/4)`;
+
 }
 else if(
 Date.now() - lastDailyReward <
@@ -324,6 +328,9 @@ rewardBtn.disabled = true;
 rewardBtn.textContent =
 "✅ Claimed";
 
+ document.getElementById("dailyRewardInfo")
+.textContent =
+"Come back every 24 hours to claim free cash.";   
 }
 else{
 
@@ -332,6 +339,10 @@ rewardBtn.disabled = false;
 rewardBtn.textContent =
 "🎁 Claim Daily Reward";
 
+document.getElementById("dailyRewardInfo")
+.textContent =
+"Come back every 24 hours to claim free cash.";
+    
 }
 
 const achievementReward =
