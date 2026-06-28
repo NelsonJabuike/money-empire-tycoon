@@ -1,4 +1,3 @@
-alert("script.js started");
 
 import { db }
 from "./firebase.js";
@@ -22,6 +21,8 @@ orderBy,
 limit
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+alert("Imports completed");
 
 const uid =
 localStorage.getItem("currentUser");
