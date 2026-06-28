@@ -907,8 +907,9 @@ now - lastDailyReward <
 86400000
 ){
 
-alert(
-"Daily reward already claimed.\nCome back tomorrow."
+showNotification(
+"⏰ Daily reward already claimed.",
+"warning"
 );
 
 return;
@@ -923,10 +924,9 @@ update();
 
 await saveToFirestore();
 
-alert(
-"🎉 You received $" +
-DAILY_REWARD +
-"!"
+showNotification(
+"🎉 Daily Reward +$" +
+DAILY_REWARD
 );
 
 }
