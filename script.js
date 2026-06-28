@@ -114,6 +114,27 @@ if(userSnap.exists()){
     banks =
     data.banks || 0;
 
+    workerCost =
+    data.workerCost || 100;
+
+    factoryCost =
+    data.factoryCost || 20000;
+
+    bankCost =
+    data.bankCost || 100000;
+
+    withdrawUnlocked =
+    data.withdrawUnlocked || false;
+
+    totalWithdrawn =
+    data.totalWithdrawn || 0;
+
+    withdrawalHistory =
+    data.withdrawalHistory || [];
+
+    dailyRewardUnlocked =
+    data.dailyRewardUnlocked || false;
+
     level =
     data.level || 1;
 
@@ -436,7 +457,8 @@ withdrawUnlocked,
 totalWithdrawn,
 withdrawalHistory,
 lastDailyReward,
-claimedAchievements
+claimedAchievements,
+dailyRewardUnlocked
 }
 );
 
