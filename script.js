@@ -51,6 +51,8 @@ let lastDailyReward = 0;
 
 let claimedAchievements = [];
 
+let dailyRewardUnlocked = false;
+
 const DAILY_REWARD = 1000;
 
 const ACHIEVEMENT_REWARDS = {
@@ -306,6 +308,16 @@ if(buttons[2] && money >= bankCost)
    checkWithdraw();
    highlightCurrentAchievement();
 
+if(level >= 4 && !dailyRewardUnlocked){
+
+dailyRewardUnlocked = true;
+
+showAchievementPopup("🎁 Daily Rewards Unlocked!");
+
+saveGame();
+
+}
+    
 if(level < 4){
 
 rewardBtn.disabled = true;
@@ -402,7 +414,8 @@ setInterval(updateDailyRewardTimer,1000);
         totalWithdrawn,
         withdrawalHistory,
         lastDailyReward,
-        claimedAchievements
+        claimedAchievements,
+        dailyRewardUnlocked
     })); 
 }
 
@@ -464,6 +477,9 @@ claimedAchievements
 
         claimedAchievements =
         save.claimedAchievements || [];
+
+        dailyRewardUnlocked =
+        save.dailyRewardUnlocked || false;
  
     }
 
