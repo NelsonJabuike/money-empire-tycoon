@@ -1049,7 +1049,6 @@ function showAchievementPopup(text){
 ‎
 ‎}
 ‎
-‎
 ‎function showNotification(message,type="success"){
 ‎
 ‎const container =
@@ -1076,10 +1075,11 @@ function showAchievementPopup(text){
 ‎notification.remove();
 ‎
 ‎},3000);
-‎
+
+    
 ‎}
-‎
-‎
+
+
 ‎function highlightCurrentAchievement(){
 ‎
 ‎const ids = [
@@ -1139,9 +1139,9 @@ function showAchievementPopup(text){
 ‎"🌎 Business Mogul":"achMogul",
 ‎
 ‎"👑 Empire Builder":"achEmpire"
-‎
-‎};
 
+    
+‎};
 
 const currentId = map[achievement];
 
