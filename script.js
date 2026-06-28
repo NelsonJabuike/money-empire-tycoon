@@ -101,9 +101,13 @@ document.getElementById("claimAchievementBtn");
 const userRef =
 doc(db, "users", uid);
 
-const userSnap =
-await getDoc(userRef);
+let userSnap;
 
+try {
+    userSnap = await getDoc(userRef);
+} catch (error) {
+    alert("Firestore Error:\n\n" + error.message);
+}
 
 if(userSnap.exists()){
 
