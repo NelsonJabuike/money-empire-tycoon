@@ -2,14 +2,6 @@
 import { db }
 from "./firebase.js";
 
-window.onerror = function(message, source, line, column, error) {
-    alert(
-        "ERROR:\n\n" +
-        message +
-        "\n\nLine: " + line
-    );
-};
-
 import {
 doc,
 getDoc,
@@ -21,8 +13,6 @@ orderBy,
 limit
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
-alert("Imports completed");
 
 const uid =
 localStorage.getItem("currentUser");
