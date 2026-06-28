@@ -46,12 +46,12 @@ let previousAchievement =
 let withdrawUnlocked = false;
 let totalWithdrawn = 0;
 let withdrawalHistory = [];
-
 let lastDailyReward = 0;
-
 let claimedAchievements = [];
-
 let dailyRewardUnlocked = false;
+let isSaving = false;
+let needsSave = false;
+
 
 const DAILY_REWARD = 1000;
 
@@ -171,11 +171,6 @@ else{
 const logoutBtn =
 document.getElementById("logoutBtn");
 
-
-
-
-
-
 const moneyDisplay = document.getElementById("money");
 
 document.getElementById("clickBtn")
@@ -183,7 +178,8 @@ document.getElementById("clickBtn")
 
     
     money++;
-
+    needsSave = true;
+    
 showFloatingMoney();
 
 checkLevel();
@@ -271,9 +267,14 @@ setInterval(() => {
 
     money += incomePerSecond();
 
+    checkLevel();
+
+    checkAchievements();
+
     update();
 
 },1000);
+
 
 function update(){
 
@@ -307,12 +308,6 @@ function update(){
    document.getElementById("achievement")
       .textContent = achievement;
       
-     document.getElementById("level")
-.textContent = level;
-
-document.getElementById("achievement")
-.textContent = achievement;
-
    const buttons =
 document.querySelectorAll(".item button");
 
@@ -402,12 +397,10 @@ achievementBtn.disabled = false;
 achievementBtn.textContent =
 `🎁 Claim $${achievementReward.toLocaleString()} Reward`;
 
-}
-    
-    saveGame();
-    
+}    
 }  
-  
+
+saveGame();
 checkLevel();
 checkAchievements();
 update();
@@ -443,11 +436,16 @@ setInterval(updateDailyRewardTimer,1000);
     })); 
 }
 
-async function saveToFirestore(){
+async function saveToFirestore() {
 
-await updateDoc(
-doc(db,"users",uid),
-{
+if (isSaving) return;
+
+isSaving = true;
+
+try {
+
+await updateDoc(doc(db, "users", uid), {
+
 money,
 workers,
 factories,
@@ -463,55 +461,21 @@ withdrawalHistory,
 lastDailyReward,
 claimedAchievements,
 dailyRewardUnlocked
-}
-);
+
+});
+
+} catch (error) {
+
+console.error("Failed to save:", error);
+
+} finally {
+
+isSaving = false;
 
 }
 
-    function loadGame(){
-    //localStorage.clear()
-    
-    let save =
-    JSON.parse(localStorage.getItem("moneyGame"));
-
-    if(save){
-        
-        money = save.money;
-        workers = save.workers;
-        factories = save.factories;
-        banks = save.banks;
-
-        workerCost = save.workerCost;
-        factoryCost = save.factoryCost;
-        bankCost = save.bankCost;
-
-        level = save.level || 1;
-
-        achievement =
-        save.achievement ||
-        "Getting Started";
-
-        totalWithdrawn =
-        save.totalWithdrawn || 0;
-        
-        withdrawalHistory =
-        save.withdrawalHistory || [];
-        
-        lastDailyReward =
-        save.lastDailyReward || 0;
-
-        claimedAchievements =
-        save.claimedAchievements || [];
-
-        dailyRewardUnlocked =
-        save.dailyRewardUnlocked || false;
- 
-    }
-
-
-    
- }
-    
+}
+  
     function showFloatingMoney(){
 
     const container =
@@ -980,6 +944,10 @@ money += DAILY_REWARD;
 
 lastDailyReward = now;
 
+checkLevel();
+
+checkAchievements();
+
 update();
 
 await saveToFirestore();
@@ -1021,6 +989,10 @@ return;
 money += reward;
 
 claimedAchievements.push(achievement);
+
+checkLevel();
+
+checkAchievements();
 
 update();
 
