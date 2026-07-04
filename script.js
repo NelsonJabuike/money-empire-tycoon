@@ -160,7 +160,9 @@ const moneyDisplay = document.getElementById("money");
 
 document.getElementById("clickBtn")
 .addEventListener("click", () => {
-    
+
+playSound("click");
+      
     money++;
 
 showFloatingMoney();
