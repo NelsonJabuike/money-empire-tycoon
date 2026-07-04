@@ -630,7 +630,9 @@ function checkAchievements(){
 
 }
      function showPurchase(text){
-
+           
+     playSound("buy");
+           
     const msg =
     document.createElement("div");
 
@@ -950,7 +952,9 @@ return;
 }
 
 money += DAILY_REWARD;
-
+      
+playSound("reward");
+      
 lastDailyReward = now;
 
 update();
@@ -992,7 +996,9 @@ return;
 }
 
 money += reward;
-
+      
+playSound("reward");
+      
 claimedAchievements.push(achievement);
 
 update();
@@ -1008,6 +1014,8 @@ reward.toLocaleString()
 
 function showAchievementPopup(text){
 
+playSound("achievement");
+      
 const popup =
 document.getElementById("achievementPopup");
 
