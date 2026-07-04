@@ -771,18 +771,27 @@ if(money >= 500000){
 
 function checkWithdraw(){
 
-    if(
-        money >= 100000 &&
-        !withdrawUnlocked
-    ){
+    const withdrawCard =
+    document.getElementById("withdrawCard");
 
-        withdrawUnlocked = true;
-         
-        playUnlock();
-         
-        document
-        .getElementById("withdrawModal")
-        .style.display = "flex";
+    if(money >= 100000){
+
+        withdrawCard.style.display = "block";
+
+        if(!withdrawUnlocked){
+
+            withdrawUnlocked = true;
+
+            playSound("unlock");
+
+            document
+            .getElementById("withdrawModal")
+            .style.display = "flex";
+        }
+
+        }else{
+
+        withdrawCard.style.display = "none";
 
     }
 
