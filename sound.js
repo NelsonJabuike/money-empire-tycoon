@@ -17,3 +17,6 @@ achievement: new Audio("sounds/achievement.mp3")
 
 window.gameSounds = sounds;
 
+alert("Sound System Loaded");
+
+console.log("Sound System Loaded");
