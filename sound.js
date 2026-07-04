@@ -16,3 +16,4 @@ achievement: new Audio("sounds/achievement.mp3")
 };
 
 window.gameSounds = sounds;
+
