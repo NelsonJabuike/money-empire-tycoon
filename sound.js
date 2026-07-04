@@ -15,5 +15,14 @@ achievement: new Audio("sounds/achievement.mp3")
 
 };
 
-window.gameSounds = sounds;
+function playSound(name){
 
+if(!sounds[name]) return;
+
+sounds[name].currentTime = 0;
+
+sounds[name].play().catch(()=>{});
+
+}
+
+window.playSound = playSound;
