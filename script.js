@@ -176,6 +176,13 @@ update();
 
 });
 
+document.getElementById("clickBtn")
+.addEventListener("click", () => {
+
+playBackgroundMusic();
+
+}, { once: true });
+
 
     function buyWorker(){
 
