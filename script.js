@@ -322,6 +322,8 @@ dailyRewardUnlocked = true;
 
 showAchievementPopup("🎁 Daily Rewards Unlocked!");
 
+playUnlock();
+        
 saveGame();
 
 }
@@ -518,7 +520,9 @@ doc(db,"users",uid),
 }
 
 function checkLevel(){
-    
+     
+    const oldLevel = level;
+     
     if(money >= 10){
 
         level = 1;
@@ -578,6 +582,11 @@ function checkLevel(){
 
         level = 11;
     }
+     if(level > oldLevel){
+
+     playLevelUp();
+
+     }
 }
 
 
@@ -768,7 +777,9 @@ function checkWithdraw(){
     ){
 
         withdrawUnlocked = true;
-
+         
+        playUnlock();
+         
         document
         .getElementById("withdrawModal")
         .style.display = "flex";
@@ -1056,10 +1067,18 @@ if(type !== "success"){
 
 notification.classList.add(type);
 
+playError();
+
 }
 
 notification.textContent = message;
 
+if(type === "success"){
+
+playNotification();
+
+}
+     
 container.appendChild(notification);
 
 setTimeout(()=>{
