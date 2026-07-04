@@ -58,3 +58,24 @@ music.play().catch(()=>{});
 }
 
 window.playBackgroundMusic = playBackgroundMusic;
+
+function playLevelUp() {
+    playSound("levelup");
+}
+
+function playUnlock() {
+    playSound("unlock");
+}
+
+function playNotification() {
+    playSound("notification");
+}
+
+function playError() {
+    playSound("error");
+}
+
+window.playLevelUp = playLevelUp;
+window.playUnlock = playUnlock;
+window.playNotification = playNotification;
+window.playError = playError;
