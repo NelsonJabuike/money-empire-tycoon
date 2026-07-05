@@ -49,6 +49,7 @@ let withdrawalHistory = [];
 let lastDailyReward = 0;
 let claimedAchievements = [];
 let dailyRewardUnlocked = false;
+let needsCloudSave = false;
 
 const DAILY_REWARD = 1000;
 
@@ -324,7 +325,7 @@ showAchievementPopup("🎁 Daily Rewards Unlocked!");
 playUnlock();
         
 saveGame();
-
+needsCloudSave = true;
 }
    
    if(level < 4){
@@ -423,7 +424,11 @@ setInterval(updateDailyRewardTimer,1000);
     })); 
 }
     
-    async function saveToFirestore(){
+ async function saveToFirestore(){
+
+if(!needsCloudSave) return;
+
+needsCloudSave = false;
 
 await updateDoc(
 doc(db,"users",uid),
