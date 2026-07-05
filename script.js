@@ -49,7 +49,7 @@ let withdrawalHistory = [];
 let lastDailyReward = 0;
 let claimedAchievements = [];
 let dailyRewardUnlocked = false;
-let needsCloudSave = false;
+let needsCloudSave = true;
 
 const DAILY_REWARD = 1000;
 
@@ -324,8 +324,6 @@ showAchievementPopup("🎁 Daily Rewards Unlocked!");
 
 playUnlock();
         
-saveGame();
-needsCloudSave = true;
 }
    
    if(level < 4){
@@ -384,6 +382,7 @@ achievementBtn.textContent =
 `🎁 Claim $${achievementReward.toLocaleString()} Reward`;
 
 }
+   markCloudSave();
    saveGame();
    
 }  
@@ -400,6 +399,12 @@ setInterval(loadLeaderboard,10000);
 
 setInterval(updateDailyRewardTimer,1000);
 
+
+function markCloudSave(){
+
+    needsCloudSave = true;
+
+}
 
  function saveGame(){
 
