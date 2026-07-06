@@ -961,6 +961,7 @@ window.location.href =
 
    window.buyWorker = buyWorker;
    window.buyFactory = buyFactory;
+   window.buyLogistics = buyLogistics;
    window.buyBank = buyBank;
    
    function logout(){
