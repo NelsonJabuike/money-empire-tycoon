@@ -199,7 +199,7 @@ playBackgroundMusic();
         Math.floor(workerCost * 1.15);
 
         showPurchase("👷 Worker Hired!");
-
+        animateShopCard("workerCard");
         update();
         
     }
@@ -218,7 +218,7 @@ function buyFactory(){
         Math.floor(factoryCost * 1.20);
         
         showPurchase("🏭 Factory Built!"); 
-        
+        animateShopCard("factoryCard");
         update();
 
     }
@@ -236,8 +236,8 @@ function buyBank(){
 
         bankCost = Math.floor(bankCost * 1.25);
          
-         showPurchase("🏦 Bank Purchased!");
-
+        showPurchase("🏦 Bank Purchased!");
+        animateShopCard("bankCard");
         update();
         
     }
