@@ -3,7 +3,7 @@
 // Smooth Money Counter
 // ==========================
 
-let displayedMoney = 0;
+let displayedMoney = null;
 
 function updateMoneyDisplay(targetMoney){
 
@@ -11,6 +11,12 @@ const moneyDisplay =
 document.getElementById("money");
 
 if(!moneyDisplay) return;
+
+if(displayedMoney === null){
+
+displayedMoney = targetMoney;
+
+}
 
 displayedMoney += (targetMoney - displayedMoney) * 0.15;
 
