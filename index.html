@@ -144,6 +144,68 @@ Reward Ready!
         </button>
       </div>
 
+     <div id="hotelCard" class="item">
+    <h3>🏨 Hotel</h3>
+
+    <p>Income: $500/sec</p>
+
+    <p>Cost: $<span id="hotelCost">625000</span></p>
+
+    <button onclick="buyHotel()">
+        🏨 Buy Hotel
+    </button>
+     </div>
+
+     <div id="airlineCard" class="item">
+    <h3>✈️ Airline</h3>
+    <p>Income: $2,500/sec</p>
+    <p>Cost: $<span id="airlineCost">3125000</span></p>
+
+    <button onclick="buyAirline()">
+        ✈️ Buy Airline
+    </button>
+     </div>
+
+     <div id="supermarketCard" class="item">
+    <h3>🛒 Supermarket Chain</h3>
+    <p>Income: $10,000/sec</p>
+    <p>Cost: $<span id="supermarketCost">15625000</span></p>
+
+    <button onclick="buySupermarket()">
+        🛒 Buy Supermarket
+    </button>
+     </div>
+
+     <div id="corporationCard" class="item">
+    <h3>🏢 Corporation</h3>
+    <p>Income: $50,000/sec</p>
+    <p>Cost: $<span id="corporationCost">78125000</span></p>
+
+    <button onclick="buyCorporation()">
+        🏢 Buy Corporation
+    </button>
+     </div>
+
+     <div id="oilCard" class="item">
+    <h3>🛢 Oil Company</h3>
+    <p>Income: $250,000/sec</p>
+    <p>Cost: $<span id="oilCost">390625000</span></p>
+
+    <button onclick="buyOil()">
+        🛢 Buy Oil Company
+    </button>
+     </div>
+
+     <div id="spaceCard" class="item">
+    <h3>🚀 Space Company</h3>
+    <p>Income: $1,000,000/sec</p>
+    <p>Cost: $<span id="spaceCost">1953125000</span></p>
+
+    <button onclick="buySpace()">
+        🚀 Buy Space Company
+    </button>
+     </div>
+
     </div>
 
     <div class="stats">
@@ -157,10 +219,23 @@ Reward Ready!
       <p>Logistics: <span id="logistics">0</span></p>
 
       <p>Banks: <span id="banks">0</span></p>
-     
-      <p>Total Income/sec:
-        $<span id="income">0</span>
-      </p>
+
+      <p>Hotels: <span id="hotels">0</span></p>
+
+      <p>Airlines: <span id="airlines">0</span></p>
+
+      <p>Supermarkets: <span id="supermarkets">0</span></p>
+
+      <p>Corporations: <span id="corporations">0</span></p>
+
+      <p>Oil Companies: <span id="oilCompanies">0</span></p>
+
+      <p>Space Companies: <span id="spaceCompanies">0</span></p>
+
+      <p>
+       Total Income/sec:
+       $<span id="income">0</span>
+       </p>
 
     </div>
 
