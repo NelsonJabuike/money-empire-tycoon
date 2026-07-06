@@ -1347,3 +1347,35 @@ transform:scale(1);
 animation:clickBounce 0.15s ease;
 
 }
+
+/* ==========================
+   Shop Purchase Animation
+========================== */
+
+@keyframes shopBounce{
+
+0%{
+transform:scale(1);
+}
+
+35%{
+transform:scale(0.95);
+}
+
+70%{
+transform:scale(1.05);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+.shopBounce{
+
+animation:shopBounce 0.30s ease;
+
+box-shadow:0 0 20px #00ff88;
+
+}
