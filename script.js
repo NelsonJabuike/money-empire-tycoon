@@ -31,11 +31,13 @@ window.location.href =
 let money = 0; //testing only
 let workers = 0;
 let factories = 0;
+let logistics = 0;
 let banks = 0;
 
 let workerCost = 100;
 let factoryCost = 20000;
-let bankCost = 100000;
+let logisticsCost = 50000;
+let bankCost = 125000;
 let level = 1;
 let achievement =
 "Getting Started";
@@ -107,6 +109,9 @@ if(userSnap.exists()){
     factories =
     data.factories || 0;
 
+    logistics =
+    data.logistics || 0;
+
     banks =
     data.banks || 0;
     
@@ -116,9 +121,12 @@ if(userSnap.exists()){
     factoryCost =
     data.factoryCost || 20000;
 
-    bankCost =
-    data.bankCost || 100000;
+    logisticsCost =
+    data.logisticsCost || 50000;
 
+    bankCost =
+    data.bankCost || 125000;
+    
     withdrawUnlocked =
     data.withdrawUnlocked || false;
 
@@ -226,6 +234,27 @@ function buyFactory(){
      
 }
 
+function buyLogistics(){
+
+    if(money >= logisticsCost){
+
+        money -= logisticsCost;
+
+        logistics++;
+
+        logisticsCost =
+        Math.floor(logisticsCost * 1.22);
+
+        showPurchase("🚚 Logistics Company Purchased!");
+
+        animateShopCard("logisticsCard");
+
+        update();
+
+    }
+
+}
+
 function buyBank(){
 
     if(money >= bankCost){
@@ -248,10 +277,11 @@ function buyBank(){
 function incomePerSecond(){
 
     return (
-        workers * 0.25 +
-        factories * 10 +
-        banks * 100
-    );
+    workers * 0.25 +
+    factories * 10 +
+    logistics * 40 +
+    banks * 100
+);
 }
 
 setInterval(() => {
@@ -276,6 +306,9 @@ function update(){
     document.getElementById("factories")
       .textContent = factories;
 
+    document.getElementById("logistics")
+      .textContent = logistics;
+
     document.getElementById("banks")
       .textContent = banks;
 
@@ -287,6 +320,9 @@ function update(){
 
     document.getElementById("factoryCost")
       .textContent = factoryCost;
+
+    document.getElementById("logisticsCost")
+      .textContent = logisticsCost;
 
     document.getElementById("bankCost")
       .textContent = bankCost;
@@ -309,8 +345,11 @@ if(buttons[0] && money >= workerCost)
 if(buttons[1] && money >= factoryCost)
     buttons[1].classList.add("can-buy");
 
-if(buttons[2] && money >= bankCost)
+if(buttons[2] && money >= logisticsCost)
     buttons[2].classList.add("can-buy");
+
+if(buttons[3] && money >= bankCost)
+    buttons[3].classList.add("can-buy");
 
    updateProgress();
    updateReward();
@@ -415,10 +454,14 @@ function markCloudSave(){
         money,
         workers,
         factories,
+        logistics,
         banks,
+
         workerCost,
         factoryCost,
+        logisticsCost,
         bankCost,
+        
         level,
         achievement,
         withdrawUnlocked,
@@ -442,10 +485,14 @@ doc(db,"users",uid),
         money,
         workers,
         factories,
+        logistics,
         banks,
+
         workerCost,
         factoryCost,
+        logisticsCost,
         bankCost,
+    
         level,
         achievement,
         withdrawUnlocked,
@@ -470,10 +517,12 @@ doc(db,"users",uid),
         money = save.money;
         workers = save.workers;
         factories = save.factories;
+        logistics = save.logistics;
         banks = save.banks;
 
         workerCost = save.workerCost;
         factoryCost = save.factoryCost;
+        logisticsCost = save.logisticsCost;
         bankCost = save.bankCost;
 
         level = save.level || 1;
