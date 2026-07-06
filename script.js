@@ -748,14 +748,59 @@ if(money >= 500000){
     currentTarget = 500000;
     nextTarget = 1000000;
 }
-   let progress =
-((money-currentTarget) /
-(nextTarget-currentTarget)) * 100;
-    
 
-      progress =
-      Math.max(0,
-      Math.min(progress,100));
+ if(money >= 1000000){
+
+    currentRank = "Millionaire";
+    nextRank = "Tycoon";
+
+    currentTarget = 1000000;
+    nextTarget = 10000000;
+ }
+  if(money >= 10000000){
+
+    currentRank = "Tycoon";
+    nextRank = "Business Mogul";
+
+    currentTarget = 10000000;
+    nextTarget = 100000000;
+}
+
+if(money >= 100000000){
+
+    currentRank = "Business Mogul";
+    nextRank = "Empire Builder";
+
+    currentTarget = 100000000;
+    nextTarget = 1000000000;
+}
+
+if(money >= 1000000000){
+
+    currentRank = "Empire Builder";
+    nextRank = "MAX RANK";
+
+    currentTarget = 1000000000;
+    nextTarget = 1000000000;
+}      
+        
+   let progress;
+
+if(nextTarget === currentTarget){
+
+    progress = 100;
+
+}
+else{
+
+    progress =
+    ((money - currentTarget) /
+    (nextTarget - currentTarget)) * 100;
+
+    progress =
+    Math.max(0, Math.min(progress,100));
+
+}
 
     document.getElementById("currentRank")
     .textContent = currentRank;
