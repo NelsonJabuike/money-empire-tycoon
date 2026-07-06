@@ -53,76 +53,6 @@ let claimedAchievements = [];
 let dailyRewardUnlocked = false;
 let needsCloudSave = true;
 
-const BUSINESS = {
-
-worker:{
-name:"👷 Worker",
-key:"workers",
-costKey:"workerCost",
-income:0.25,
-multiplier:1.15,
-card:"workerCard"
-},
-
-factory:{
-name:"🏭 Factory",
-key:"factories",
-costKey:"factoryCost",
-income:10,
-multiplier:1.20,
-card:"factoryCard"
-},
-
-logistics:{
-name:"🚚 Logistics Company",
-key:"logistics",
-costKey:"logisticsCost",
-income:40,
-multiplier:1.22,
-card:"logisticsCard"
-},
-
-bank:{
-name:"🏦 Bank",
-key:"banks",
-costKey:"bankCost",
-income:100,
-multiplier:1.25,
-card:"bankCard"
-}
-
-};
-
-function buyBusiness(type){
-
-const business = BUSINESS[type];
-
-if(!business) return;
-
-if(money < window[business.costKey]) return;
-
-money -= window[business.costKey];
-
-window[business.key]++;
-
-window[business.costKey] =
-Math.floor(
-window[business.costKey] *
-business.multiplier
-);
-
-showPurchase(
-business.name + " Purchased!"
-);
-
-animateShopCard(
-business.card
-);
-
-update();
-
-}
-
 const DAILY_REWARD = 1000;
 
 const ACHIEVEMENT_REWARDS = {
@@ -267,8 +197,20 @@ playBackgroundMusic();
 
     function buyWorker(){
 
-buyBusiness("worker");
+    if(money >= workerCost){
 
+        money -= workerCost;
+
+        workers++;
+
+        workerCost =
+        Math.floor(workerCost * 1.15);
+
+        showPurchase("👷 Worker Hired!");
+        animateShopCard("workerCard");
+        update();
+        
+    }
 }
 
 
