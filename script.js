@@ -163,6 +163,8 @@ document.getElementById("clickBtn")
 .addEventListener("click", () => {
 
 playSound("click");
+    
+animateClickButton();
       
     money++;
 
