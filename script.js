@@ -268,9 +268,8 @@ setInterval(() => {
 
 function update(){
 
-    moneyDisplay.textContent =
-      Math.floor(money).toLocaleString();
-
+    updateMoneyDisplay(money);
+    
     document.getElementById("workers")
       .textContent = workers;
 
