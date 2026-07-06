@@ -33,11 +33,23 @@ let workers = 0;
 let factories = 0;
 let logistics = 0;
 let banks = 0;
+let hotels = 0;
+let airlines = 0;
+let supermarkets = 0;
+let corporations = 0;
+let oilCompanies = 0;
+let spaceCompanies = 0;
 
 let workerCost = 100;
 let factoryCost = 20000;
 let logisticsCost = 50000;
 let bankCost = 125000;
+let hotelCost = 625000;
+let airlineCost = 3125000;
+let supermarketCost = 15625000;
+let corporationCost = 78125000;
+let oilCost = 390625000;
+let spaceCost = 1953125000;
 let level = 1;
 let achievement =
 "Getting Started";
@@ -114,6 +126,24 @@ if(userSnap.exists()){
 
     banks =
     data.banks || 0;
+
+    hotels =
+    data.hotels || 0; 
+    
+    airlines = 
+    data.airlines || 0;  
+    
+    supermarkets =
+    data.supermarkets || 0;
+    
+    corporations =
+    data.corporations || 0;
+    
+    oilCompanies = 
+    data.oilCompanies || 0;
+    
+    spaceCompanies =
+    data.spaceCompanies || 0;
     
     workerCost =
     data.workerCost || 100;
@@ -126,6 +156,24 @@ if(userSnap.exists()){
 
     bankCost =
     data.bankCost || 125000;
+
+    hotelCost =
+    data.hotelCost || 625000;
+    
+    airlineCost = 
+    data.airlineCost || 3125000;
+    
+    supermarketCost =
+    data.supermarketCost || 15625000;
+    
+    corporationCost =
+    data.corporationCost || 78125000;
+    
+    oilCost =
+    data.oilCost || 390625000;
+    
+    spaceCost =
+    data.spaceCost || 1953125000;
     
     withdrawUnlocked =
     data.withdrawUnlocked || false;
@@ -272,6 +320,126 @@ function buyBank(){
     }
     
 }
+
+function buyHotel(){
+
+    if(money >= hotelCost){
+
+        money -= hotelCost;
+
+        hotels++;
+
+        hotelCost = Math.floor(hotelCost * 1.30);
+
+        showPurchase("🏨 Hotel Purchased!");
+
+        animateShopCard("hotelCard");
+
+        update();
+
+    }
+
+}
+
+function buyAirline(){
+
+    if(money >= airlineCost){
+
+        money -= airlineCost;
+
+        airlines++;
+
+        airlineCost = Math.floor(airlineCost * 1.40);
+
+        showPurchase("✈️ Airline Purchased!");
+
+        animateShopCard("airlineCard");
+
+        update();
+
+    }
+
+}
+
+function buySupermarket(){
+
+    if(money >= supermarketCost){
+
+        money -= supermarketCost;
+
+        supermarkets++;
+
+        supermarketCost = Math.floor(supermarketCost * 1.55);
+
+        showPurchase("🛒 Supermarket Purchased!");
+
+        animateShopCard("supermarketCard");
+
+        update();
+
+    }
+
+}
+
+function buyCorporation(){
+
+    if(money >= corporationCost){
+
+        money -= corporationCost;
+
+        corporations++;
+
+        corporationCost = Math.floor(corporationCost * 1.65);
+
+        showPurchase("🏢 Corporation Purchased!");
+
+        animateShopCard("corporationCard");
+
+        update();
+
+    }
+
+}
+
+function buyOil(){
+
+    if(money >= oilCost){
+
+        money -= oilCost;
+
+        oilCompanies++;
+
+        oilCost = Math.floor(oilCost * 1.75);
+
+        showPurchase("🛢 Oil Company Purchased!");
+
+        animateShopCard("oilCard");
+
+        update();
+
+    }
+
+}
+
+function buySpace(){
+
+    if(money >= spaceCost){
+
+        money -= spaceCost;
+
+        spaceCompanies++;
+
+        spaceCost = Math.floor(spaceCost * 2.00);
+
+        showPurchase("🚀 Space Company Purchased!");
+
+        animateShopCard("spaceCard");
+
+        update();
+
+    }
+
+}
     
 
 function incomePerSecond(){
@@ -280,7 +448,13 @@ function incomePerSecond(){
     workers * 0.25 +
     factories * 10 +
     logistics * 40 +
-    banks * 100
+    banks * 100 +
+    hotels * 500 +
+    airlines * 2500 +
+    supermarkets * 10000 +
+    corporations * 50000 +
+    oilCompanies * 250000 +
+    spaceCompanies * 1000000
 );
 }
 
@@ -312,6 +486,24 @@ function update(){
     document.getElementById("banks")
       .textContent = banks;
 
+    document.getElementById("hotels")
+      .textContent = hotels;
+
+    document.getElementById("airlines")
+      .textContent = airlines;
+
+    document.getElementById("supermarkets")
+      .textContent = supermarkets;
+
+    document.getElementById("corporations")
+      .textContent = corporations;
+
+    document.getElementById("oilCompanies")
+      .textContent = oilCompanies;
+
+    document.getElementById("spaceCompanies")
+      .textContent = spaceCompanies;
+
     document.getElementById("income")
       .textContent = incomePerSecond();
 
@@ -326,6 +518,24 @@ function update(){
 
     document.getElementById("bankCost")
       .textContent = bankCost;
+
+    document.getElementById("hotelCost")
+      .textContent = hotelCost;
+
+    document.getElementById("airlineCost")
+      .textContent = airlineCost;
+
+    document.getElementById("supermarketCost")
+      .textContent = supermarketCost;
+
+    document.getElementById("corporationCost")
+      .textContent = corporationCost;
+
+    document.getElementById("oilCost")
+      .textContent = oilCost;
+
+    document.getElementById("spaceCost")
+      .textContent = spaceCost;
 
     document.getElementById("level")
       .textContent = level;
@@ -351,6 +561,24 @@ if(buttons[2] && money >= logisticsCost)
 if(buttons[3] && money >= bankCost)
     buttons[3].classList.add("can-buy");
 
+if(buttons[4] && money >= hotelCost)
+    buttons[4].classList.add("can-buy");
+
+if(buttons[5] && money >= airlineCost)
+    buttons[5].classList.add("can-buy");
+
+if(buttons[6] && money >= supermarketCost)
+    buttons[6].classList.add("can-buy");
+
+if(buttons[7] && money >= corporationCost)
+    buttons[7].classList.add("can-buy");
+
+if(buttons[8] && money >= oilCost)
+    buttons[8].classList.add("can-buy");
+
+if(buttons[9] && money >= spaceCost)
+    buttons[9].classList.add("can-buy");
+    
    updateProgress();
    updateReward();
    checkWithdraw();
@@ -456,11 +684,23 @@ function markCloudSave(){
         factories,
         logistics,
         banks,
+        hotels,
+        airlines,
+        supermarkets,
+        corporations,
+        oilCompanies,
+        spaceCompanies,
 
         workerCost,
         factoryCost,
         logisticsCost,
         bankCost,
+        hotelCost,
+        airlineCost,
+        supermarketCost,
+        corporationCost,
+        oilCost,
+        spaceCost,
         
         level,
         achievement,
@@ -487,11 +727,23 @@ doc(db,"users",uid),
         factories,
         logistics,
         banks,
+        hotels,
+        airlines,
+        supermarkets,
+        corporations,
+        oilCompanies,
+        spaceCompanies,
 
         workerCost,
         factoryCost,
         logisticsCost,
         bankCost,
+        hotelCost,
+        airlineCost,
+        supermarketCost,
+        corporationCost,
+        oilCost,
+        spaceCost,
     
         level,
         achievement,
@@ -517,13 +769,25 @@ doc(db,"users",uid),
         money = save.money;
         workers = save.workers;
         factories = save.factories;
-        logistics = save.logistics;
+        logistics = save.logistics|| 0;
         banks = save.banks;
+        hotels = save.hotels || 0;
+        airlines = save.airlines || 0;
+        supermarkets = save.supermarkets || 0;
+        corporations = save.corporations || 0;
+        oilCompanies = save.oilCompanies || 0;
+        spaceCompanies = save.spaceCompanies || 0;
 
         workerCost = save.workerCost;
         factoryCost = save.factoryCost;
-        logisticsCost = save.logisticsCost;
+        logisticsCost = save.logisticsCost|| 50000;
         bankCost = save.bankCost;
+        hotelCost = save.hotelCost || 625000;
+        airlineCost = save.airlineCost || 3125000;
+        supermarketCost = save.supermarketCost || 15625000;
+        corporationCost = save.corporationCost || 78125000;
+        oilCost = save.oilCost || 390625000;
+        spaceCost = save.spaceCost || 1953125000; 
 
         level = save.level || 1;
 
@@ -959,10 +1223,16 @@ window.location.href =
 
 });
 
-   window.buyWorker = buyWorker;
-   window.buyFactory = buyFactory;
-   window.buyLogistics = buyLogistics;
-   window.buyBank = buyBank;
+window.buyWorker = buyWorker;
+window.buyFactory = buyFactory;
+window.buyLogistics = buyLogistics;
+window.buyBank = buyBank;
+window.buyHotel = buyHotel;
+window.buyAirline = buyAirline;
+window.buySupermarket = buySupermarket;
+window.buyCorporation = buyCorporation;
+window.buyOil = buyOil;
+window.buySpace = buySpace;
    
    function logout(){
 
