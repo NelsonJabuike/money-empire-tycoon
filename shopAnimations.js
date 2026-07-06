@@ -15,6 +15,11 @@ void card.offsetWidth;
 
 card.classList.add("shopBounce");
 
-}
+// Remove the animation class after it finishes
+setTimeout(() => {
 
-window.animateShopCard = animateShopCard;
+card.classList.remove("shopBounce");
+
+}, 500);
+
+}
