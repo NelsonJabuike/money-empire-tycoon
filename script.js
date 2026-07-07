@@ -678,16 +678,6 @@ function markCloudSave(){
 // Withdraw Center UI
 // ==========================
 
-const unlockAmount = 100000;
-
-const withdrawProgress =
-Math.min((money / unlockAmount) * 100, 100);
-
-document.getElementById("withdrawProgressFill").style.width =
-withdrawProgress + "%";
-
-document.getElementById("withdrawProgressText").textContent =
-`$${Math.floor(money).toLocaleString()} / $${unlockAmount.toLocaleString()}`;
 
 const remaining =
 Math.max(unlockAmount - money, 0);
@@ -1277,15 +1267,26 @@ document
 
    function updateReward(){
 
-    let reward =
-    (money / 100000).toFixed(2);
+    const unlockAmount = 100000;
 
-    document
-    .getElementById("rewardAmount")
-    .textContent =
+    // Reward
+    let reward = (money / unlockAmount).toFixed(2);
+
+    document.getElementById("rewardAmount").textContent =
     "$" + reward;
-}   
 
+    // Progress Bar
+    const withdrawProgress =
+    Math.min((money / unlockAmount) * 100, 100);
+
+    document.getElementById("withdrawProgressFill").style.width =
+    withdrawProgress + "%";
+
+    // Progress Text
+    document.getElementById("withdrawProgressText").textContent =
+    `$${Math.floor(money).toLocaleString()} / $${unlockAmount.toLocaleString()}`;
+
+}
     
 document.getElementById("withdrawCardBtn")
 .addEventListener("click",()=>{
