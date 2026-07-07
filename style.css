@@ -1582,3 +1582,31 @@ color:gold;
 color:gold;
 
 }
+
+.gamePage{
+
+padding-bottom:100px;
+
+animation:fadePage .25s ease;
+
+}
+
+@keyframes fadePage{
+
+from{
+
+opacity:0;
+
+transform:translateY(10px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
