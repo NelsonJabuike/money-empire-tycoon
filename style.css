@@ -1508,3 +1508,77 @@ animation:shopBounce 0.30s ease;
 box-shadow:0 0 20px #00ff88;
 
 }
+
+/* ==========================
+Bottom Navigation
+========================== */
+
+#bottomNav{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:75px;
+
+background:#1b1b1b;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+border-top:2px solid #333;
+
+z-index:9999;
+
+box-shadow:0 -5px 20px rgba(0,0,0,.45);
+
+}
+
+.navBtn{
+
+background:none;
+
+border:none;
+
+color:#bbb;
+
+font-size:13px;
+
+font-weight:bold;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+cursor:pointer;
+
+width:20%;
+
+height:100%;
+
+transition:.25s;
+
+}
+
+.navBtn:hover{
+
+color:gold;
+
+}
+
+.navBtn.active{
+
+color:gold;
+
+}
