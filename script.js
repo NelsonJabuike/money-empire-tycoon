@@ -1262,7 +1262,7 @@ collection(db,"users"),
 
 orderBy("money","desc"),
 
-limit(10)
+limit(100)
 
 );
 
@@ -1272,6 +1272,8 @@ await getDocs(q);
 leaderboard.innerHTML = "";
 
 let rank = 1;
+let yourRank = null;
+let totalPlayers = snapshot.size;
 
 snapshot.forEach(player=>{
 
@@ -1279,6 +1281,10 @@ const data = player.data();
 
 const isYou =
 player.id === uid;
+
+if(isYou){
+yourRank = rank;
+}
 
 const you =
 isYou ?
