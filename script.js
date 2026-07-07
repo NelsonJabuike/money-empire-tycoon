@@ -1194,32 +1194,56 @@ else{
 
 function checkWithdraw(){
 
-    const withdrawCard =
-    document.getElementById("withdrawCard");
+const withdrawBtn =
+document.getElementById("withdrawCardBtn");
 
-    if(money >= 100000){
+const withdrawStatus =
+document.getElementById("withdrawStatus");
 
-        withdrawCard.style.display = "block";
+const withdrawRemaining =
+document.getElementById("withdrawRemaining");
 
-        if(!withdrawUnlocked){
+if(money >= 100000){
 
-            withdrawUnlocked = true;
+    withdrawStatus.textContent =
+    "🟢 Withdrawals Unlocked";
 
-            playSound("unlock");
+    withdrawRemaining.textContent =
+    "🎉 Ready to withdraw!";
 
-            document
-            .getElementById("withdrawModal")
-            .style.display = "flex";
-        }
+    withdrawBtn.disabled = false;
 
-        }else{
+    withdrawBtn.textContent =
+    "💵 Withdraw Reward";
 
-        withdrawCard.style.display = "none";
+    if(!withdrawUnlocked){
+
+        withdrawUnlocked = true;
+
+        playSound("unlock");
+
+        document
+        .getElementById("withdrawModal")
+        .style.display = "flex";
 
     }
 
+}else{
+
+    withdrawStatus.textContent =
+    "🔒 Locked";
+
+    withdrawRemaining.textContent =
+    `🎯 Only $${Math.floor(100000-money).toLocaleString()} left to unlock your first payout!`;
+
+    withdrawBtn.disabled = true;
+
+    withdrawBtn.textContent =
+    "🔒 Locked";
+
 }
 
+}
   document
 .getElementById("withdrawNow")
 .addEventListener("click",()=>{
