@@ -1591,3 +1591,50 @@ rewardBtn.textContent =
 "🔒 Daily Reward Claimed";
 rewardBtn.classList.remove("rewardReady");
 }
+
+// ==========================
+// Bottom Navigation
+// ==========================
+
+const pages = {
+
+home: document.getElementById("homePage"),
+
+business: document.getElementById("businessPage"),
+
+withdraw: document.getElementById("withdrawPage"),
+
+leaderboard: document.getElementById("leaderboardPage"),
+
+more: document.getElementById("morePage")
+
+};
+
+document.querySelectorAll(".navBtn").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const page = btn.dataset.page;
+
+// Hide all pages
+Object.values(pages).forEach(p=>{
+
+p.style.display="none";
+
+});
+
+// Show selected page
+pages[page].style.display="block";
+
+// Update active button
+document.querySelectorAll(".navBtn").forEach(b=>{
+
+b.classList.remove("active");
+
+});
+
+btn.classList.add("active");
+
+});
+
+});
