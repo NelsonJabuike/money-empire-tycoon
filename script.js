@@ -674,6 +674,61 @@ function markCloudSave(){
 
 }
 
+// ==========================
+// Withdraw Center UI
+// ==========================
+
+const unlockAmount = 100000;
+
+const withdrawProgress =
+Math.min((money / unlockAmount) * 100, 100);
+
+document.getElementById("withdrawProgressFill").style.width =
+withdrawProgress + "%";
+
+document.getElementById("withdrawProgressText").textContent =
+`$${Math.floor(money).toLocaleString()} / $${unlockAmount.toLocaleString()}`;
+
+const remaining =
+Math.max(unlockAmount - money, 0);
+
+const withdrawBtn =
+document.getElementById("withdrawCardBtn");
+
+const withdrawStatus =
+document.getElementById("withdrawStatus");
+
+const withdrawRemaining =
+document.getElementById("withdrawRemaining");
+
+if(money >= unlockAmount){
+
+withdrawStatus.textContent =
+"🟢 Withdrawals Unlocked";
+
+withdrawRemaining.textContent =
+"Ready to withdraw!";
+
+withdrawBtn.disabled = false;
+
+withdrawBtn.textContent =
+"💵 Withdraw Reward";
+
+}else{
+
+withdrawStatus.textContent =
+"🔒 Locked";
+
+withdrawRemaining.textContent =
+`Need $${Math.floor(remaining).toLocaleString()} more`;
+
+withdrawBtn.disabled = true;
+
+withdrawBtn.textContent =
+"🔒 Locked";
+
+}
+
  function saveGame(){
 
    localStorage.setItem("moneyGame",
