@@ -295,29 +295,69 @@ Claim cash whenever you unlock a new achievement.
 
 <div id="withdrawPage" class="gamePage" style="display:none;">
 
-<div id="withdrawCard" class="withdraw-card">
+<div id="withdrawCard" class="withdraw-card" style="display:block;">
 
-    <h3>💵 Withdrawal Center</h3>
+<h2>💵 Withdrawal Center</h2>
 
-    <p>
-        Withdrawals Unlocked ✅
-    </p>
+<p id="withdrawStatus">
+🔒 Locked
+</p>
 
-    <p class="conversion-rate">
-        100,000 Game Cash = $1.00
-    </p>
+<p>
+Unlock at
+<b>$100,000</b>
+</p>
 
-    <p>
-        Available Reward:
-        <span id="rewardAmount">$1.00</span>
-    </p>
+<div class="progress-bar">
 
-     <button id="withdrawCardBtn">
-             Withdraw Reward
-    </button>
+<div id="withdrawProgressFill"></div>
 
 </div>
- 
+
+<p id="withdrawProgressText">
+
+$0 / $100,000
+
+</p>
+
+<p id="withdrawRemaining">
+
+Need $100,000 more
+
+</p>
+
+<hr>
+
+<p class="conversion-rate">
+
+100,000 Game Cash = $1.00
+
+</p>
+
+<p>
+
+Available Reward
+
+<br>
+
+<b id="rewardAmount">
+
+$0.00
+
+</b>
+
+</p>
+
+<button
+id="withdrawCardBtn"
+disabled>
+
+🔒 Locked
+
+</button>
+
+</div>
+
 </div>
 
 <div id="leaderboardPage" class="gamePage" style="display:none;">
