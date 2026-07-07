@@ -22,29 +22,7 @@ h1{
 .shop{
 
 margin-top:30px;
-
-background:#1c1c1c;
-
-border:2px solid gold;
-
-border-radius:20px;
-
-padding:15px;
-
-max-height:650px;
-
-overflow-y:auto;
-
-overflow-x:hidden;
-
-scroll-behavior:smooth;
-
-box-shadow:0 0 20px rgba(255,215,0,.20);
-
 }
-
-
-
 
     .item{
     background:#1c1c1c;
@@ -79,30 +57,11 @@ background:linear-gradient(
 }
 
 .stats{
-
-margin-top:30px;
-
-background:#1c1c1c;
-
-border:2px solid gold;
-
-border-radius:20px;
-
-padding:18px;
-
-max-height:260px;
-
-overflow-y:auto;
-
-overflow-x:hidden;
-
-scroll-behavior:smooth;
-
-box-shadow:0 0 18px rgba(255,215,0,.20);
-
+    margin-top:30px;
+    background:#222;
+    padding:20px;
+    border-radius:12px;
 }
-
-
 
 #floating-container{
     position:relative;
