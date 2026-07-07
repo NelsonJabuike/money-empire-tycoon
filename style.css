@@ -128,33 +128,7 @@ box-shadow:0 0 18px rgba(255,215,0,.20);
 
 }
 
-.stats::-webkit-scrollbar{
 
-width:8px;
-
-}
-
-.stats::-webkit-scrollbar-track{
-
-background:#1b1b1b;
-
-border-radius:20px;
-
-}
-
-.stats::-webkit-scrollbar-thumb{
-
-background:gold;
-
-border-radius:20px;
-
-}
-
-.stats::-webkit-scrollbar-thumb:hover{
-
-background:#FFD700;
-
-}
 
 #floating-container{
     position:relative;
