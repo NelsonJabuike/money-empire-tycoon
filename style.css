@@ -43,33 +43,7 @@ box-shadow:0 0 20px rgba(255,215,0,.20);
 
 }
 
-.shop::-webkit-scrollbar{
 
-width:8px;
-
-}
-
-.shop::-webkit-scrollbar-track{
-
-background:#1b1b1b;
-
-border-radius:20px;
-
-}
-
-.shop::-webkit-scrollbar-thumb{
-
-background:gold;
-
-border-radius:20px;
-
-}
-
-.shop::-webkit-scrollbar-thumb:hover{
-
-background:#FFD700;
-
-}
 
 
     .item{
@@ -265,7 +239,7 @@ box-shadow:
 
 
     .stats{
-        
+        padding:15px;
         font-size:16px;
     }
     
