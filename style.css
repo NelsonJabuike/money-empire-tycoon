@@ -306,6 +306,24 @@ box-shadow:
 
 }
 
+#withdrawProgressFill{
+
+height:100%;
+
+width:0%;
+
+border-radius:30px;
+
+transition:width .4s ease;
+
+background:linear-gradient(
+90deg,
+#FFD700,
+#4CAF50
+);
+
+}
+
 #progressPercent{
 
     margin-top:8px;
