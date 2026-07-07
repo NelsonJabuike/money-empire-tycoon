@@ -701,7 +701,12 @@ document.getElementById("withdrawStatus");
 const withdrawRemaining =
 document.getElementById("withdrawRemaining");
 
+const lockedSection =
+document.getElementById("withdrawLockedSection");
+
 if(money >= unlockAmount){
+    
+lockedSection.style.display = "none";
 
 withdrawStatus.textContent =
 "🟢 Withdrawals Unlocked";
@@ -715,7 +720,8 @@ withdrawBtn.textContent =
 "💵 Withdraw Reward";
 
 }else{
-
+    
+lockedSection.style.display = "block";
 withdrawStatus.textContent =
 "🔒 Locked";
 
