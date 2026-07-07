@@ -581,6 +581,7 @@ if(buttons[9] && money >= spaceCost)
     
    updateProgress();
    updateReward();
+   updateWithdrawCenter();
    checkWithdraw();
    highlightCurrentAchievement();
    
@@ -679,8 +680,24 @@ function markCloudSave(){
 // ==========================
 
 
+function updateWithdrawCenter(){
+
+const unlockAmount = 100000;
+
+const withdrawProgress =
+Math.min((money / unlockAmount) * 100,100);
+
+document.getElementById("withdrawProgressFill").style.width =
+withdrawProgress + "%";
+
+document.getElementById("withdrawProgressText").textContent =
+`$${Math.floor(money).toLocaleString()} / $${unlockAmount.toLocaleString()}`;
+
+document.getElementById("rewardAmount").textContent =
+"$" + (money / 100000).toFixed(2);
+
 const remaining =
-Math.max(unlockAmount - money, 0);
+Math.max(unlockAmount - money,0);
 
 const withdrawBtn =
 document.getElementById("withdrawCardBtn");
@@ -695,33 +712,36 @@ const lockedSection =
 document.getElementById("withdrawLockedSection");
 
 if(money >= unlockAmount){
-    
-lockedSection.style.display = "none";
+
+lockedSection.style.display="none";
 
 withdrawStatus.textContent =
 "🟢 Withdrawals Unlocked";
 
 withdrawRemaining.textContent =
-"Ready to withdraw!";
+"🎉 Ready to withdraw!";
 
-withdrawBtn.disabled = false;
+withdrawBtn.disabled=false;
 
-withdrawBtn.textContent =
+withdrawBtn.textContent=
 "💵 Withdraw Reward";
 
 }else{
-    
-lockedSection.style.display = "block";
-withdrawStatus.textContent =
+
+lockedSection.style.display="block";
+
+withdrawStatus.textContent=
 "🔒 Locked";
 
-withdrawRemaining.textContent =
-`Need $${Math.floor(remaining).toLocaleString()} more`;
+withdrawRemaining.textContent=
+`🎯 Only $${Math.floor(remaining).toLocaleString()} left to unlock your first payout!`;
 
-withdrawBtn.disabled = true;
+withdrawBtn.disabled=true;
 
-withdrawBtn.textContent =
+withdrawBtn.textContent=
 "🔒 Locked";
+
+}
 
 }
 
