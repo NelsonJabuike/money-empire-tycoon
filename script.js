@@ -102,6 +102,12 @@ document.getElementById("dailyRewardTimer");
 const achievementBtn =
 document.getElementById("claimAchievementBtn");
 
+const rewardsDailyBtn =
+document.getElementById("rewardsDailyBtn");
+
+const rewardsAchievementBtn =
+document.getElementById("rewardsAchievementBtn");
+
 const userRef =
 doc(db, "users", uid);
 const userSnap =
@@ -598,8 +604,12 @@ playUnlock();
    if(level < 4){
 
 rewardBtn.disabled = true;
+rewardsDailyBtn.disabled = true;
 
 rewardBtn.textContent =
+"🔒 Unlocks at Level 4";
+
+rewardsDailyBtn.textContent =
 "🔒 Unlocks at Level 4";
 
 document.getElementById("dailyRewardInfo")
@@ -613,8 +623,12 @@ Date.now() - lastDailyReward <
 ){
 
 rewardBtn.disabled = true;
+rewardsDailyBtn.disabled = true;
 
 rewardBtn.textContent =
+"✅ Claimed";
+
+rewardsDailyBtn.textContent =
 "✅ Claimed";
 
 document.getElementById("dailyRewardInfo")
@@ -624,10 +638,13 @@ document.getElementById("dailyRewardInfo")
 else{
 
 rewardBtn.disabled = false;
+rewardsDailyBtn.disabled = false;
 
 rewardBtn.textContent =
 "🎁 Claim Daily Reward";
 
+rewardsDailyBtn.textContent =
+"🎁 Claim Daily Reward";
 }
 
 const achievementReward =
