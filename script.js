@@ -1507,6 +1507,10 @@ DAILY_REWARD
 
 }
 
+rewardBtn.addEventListener("click", claimDailyReward);
+
+rewardsDailyBtn.addEventListener("click", claimDailyReward);
+
 async function claimAchievementReward(){
 
 if(claimedAchievements.includes(achievement)){
@@ -1550,6 +1554,9 @@ reward.toLocaleString()
 );
 
 }
+achievementBtn.addEventListener("click", claimAchievementReward);
+
+rewardsAchievementBtn.addEventListener("click", claimAchievementReward);
 
 function showAchievementPopup(text){
 
