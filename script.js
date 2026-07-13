@@ -655,16 +655,24 @@ claimedAchievements.includes(achievement)
 ){
 
 achievementBtn.disabled = true;
+rewardsAchievementBtn.disabled = true;
 
 achievementBtn.textContent =
+"✅ Achievement Claimed";
+
+rewardsAchievementBtn.textContent =
 "✅ Achievement Claimed";
 
 }
 else{
 
 achievementBtn.disabled = false;
+rewardsAchievementBtn.disabled = false;
 
 achievementBtn.textContent =
+`🎁 Claim $${achievementReward.toLocaleString()} Reward`;
+
+rewardsAchievementBtn.textContent =
 `🎁 Claim $${achievementReward.toLocaleString()} Reward`;
 
 }
