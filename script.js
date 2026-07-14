@@ -1414,6 +1414,7 @@ leaderboard.innerHTML = "";
 let rank = 1;
 let yourRank = null;
 let totalPlayers = snapshot.size;
+let nextPlayer = null;
 
 snapshot.forEach(player=>{
 
@@ -1423,7 +1424,16 @@ const isYou =
 player.id === uid;
 
 if(isYou){
+
 yourRank = rank;
+
+}
+else if(
+yourRank === null
+){
+
+nextPlayer = data;
+
 }
 
 const you =
