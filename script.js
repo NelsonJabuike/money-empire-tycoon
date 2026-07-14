@@ -11,7 +11,8 @@ collection,
 getDocs,
 query,
 orderBy,
-limit
+limit,
+getCountFromServer
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
@@ -1396,12 +1397,14 @@ document.getElementById("leaderboard");
 leaderboard.innerHTML = "<li>Loading...</li>";
 
 // Count every player
-const allPlayers = await getDocs(
+const totalPlayersSnapshot =
+await getCountFromServer(
 collection(db,"users")
 );
-
-const totalPlayers = allPlayers.size;
-
+    
+const totalPlayers =
+totalPlayersSnapshot.data().count;
+    
 // Load Top 100
 const q = query(
 collection(db,"users"),
