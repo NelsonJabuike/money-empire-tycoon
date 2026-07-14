@@ -1380,45 +1380,11 @@ window.logout = logout;
 
 document
 .getElementById("openWithdrawPage")
-.addEventListener("click", () => {
+.addEventListener("click",()=>{
 
-if(withdrawUnlocked){
+document.getElementById("morePage").style.display="none";
 
-    document
-    .querySelector('[data-page="more"]')
-    .classList.remove("active");
-
-    document
-    .querySelector('[data-page="leaderboard"]')
-    .classList.remove("active");
-
-    document
-    .querySelector('[data-page="business"]')
-    .classList.remove("active");
-
-    document
-    .querySelector('[data-page="rewards"]')
-    .classList.remove("active");
-
-    document
-    .querySelector('[data-page="home"]')
-    .classList.remove("active");
-
-    document
-    .querySelector('[data-page="more"]')
-    .classList.add("active");
-
-    document.getElementById("morePage").style.display = "none";
-    document.getElementById("withdrawPage").style.display = "block";
-
-}else{
-
-showNotification(
-"🔒 Reach $100,000 to unlock the Withdrawal Center.",
-"warning"
-);
-
-}
+document.getElementById("withdrawPage").style.display="block";
 
 });
 
@@ -1784,7 +1750,15 @@ leaderboard: document.getElementById("leaderboardPage"),
 more: document.getElementById("morePage")
 
 };
+document
+.getElementById("backToMoreBtn")
+.addEventListener("click",()=>{
 
+document.getElementById("withdrawPage").style.display="none";
+
+document.getElementById("morePage").style.display="block";
+
+});
 console.log("Bottom navigation loaded");
 
 document.querySelectorAll(".navBtn").forEach(btn=>{
