@@ -1740,7 +1740,7 @@ home: document.getElementById("homePage"),
 
 business: document.getElementById("businessPage"),
 
-withdraw: document.getElementById("withdrawPage"),
+rewards: document.getElementById("rewardsPage"),
 
 leaderboard: document.getElementById("leaderboardPage"),
 
