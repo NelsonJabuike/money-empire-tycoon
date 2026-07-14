@@ -1388,27 +1388,25 @@ document.getElementById("withdrawPage").style.display="block";
 
 });
 
-async function loadLeaderboard(){
+async function loadLeaderboard() {
 
 const leaderboard =
 document.getElementById("leaderboard");
 
-leaderboard.innerHTML =
-"<li>Loading...</li>";
+leaderboard.innerHTML = "<li>Loading...</li>";
 
-const q = query(
 // Count every player
 const allPlayers = await getDocs(
-    collection(db, "users")
+collection(db,"users")
 );
 
 const totalPlayers = allPlayers.size;
 
 // Load Top 100
 const q = query(
-    collection(db, "users"),
-    orderBy("money", "desc"),
-    limit(100)
+collection(db,"users"),
+orderBy("money","desc"),
+limit(100)
 );
 
 const snapshot = await getDocs(q);
