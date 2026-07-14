@@ -103,10 +103,10 @@ const achievementBtn =
 document.getElementById("claimAchievementBtn");
 
 const rewardsDailyBtn =
-document.getElementById("rewardsDailyBtn");
+document.getElementById("dailyRewardBtn");
 
 const rewardsAchievementBtn =
-document.getElementById("rewardsAchievementBtn");
+document.getElementById("claimAchievementBtn");
 
 const userRef =
 doc(db, "users", uid);
@@ -1507,9 +1507,6 @@ DAILY_REWARD
 
 }
 
-rewardBtn.addEventListener("click", claimDailyReward);
-
-rewardsDailyBtn.addEventListener("click", claimDailyReward);
 
 async function claimAchievementReward(){
 
@@ -1554,9 +1551,6 @@ reward.toLocaleString()
 );
 
 }
-achievementBtn.addEventListener("click", claimAchievementReward);
-
-rewardsAchievementBtn.addEventListener("click", claimAchievementReward);
 
 function showAchievementPopup(text){
 
@@ -1747,6 +1741,8 @@ leaderboard: document.getElementById("leaderboardPage"),
 more: document.getElementById("morePage")
 
 };
+
+console.log("Bottom navigation loaded");
 
 document.querySelectorAll(".navBtn").forEach(btn=>{
 
