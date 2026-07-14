@@ -1486,8 +1486,8 @@ const yourRankText =
 document.getElementById("yourRank");
 
 const nextRankText =
-document.getElementById("nextRank");
-
+document.getElementById("nextTarget");
+    
 if(yourRank !== null){
 
 yourRankText.innerHTML = `
