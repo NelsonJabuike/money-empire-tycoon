@@ -1478,6 +1478,61 @@ rank++;
 
 });
 
+// ==========================
+// Your Position Card
+// ==========================
+
+const yourRankText =
+document.getElementById("yourRank");
+
+const nextRankText =
+document.getElementById("nextRank");
+
+if(yourRank !== null){
+
+yourRankText.innerHTML = `
+🏅 Rank #${yourRank}
+<br>
+🌍 Out of ${totalPlayers} Players
+`;
+
+if(yourRank === 1){
+
+nextRankText.innerHTML = `
+👑 WORLD'S RICHEST PLAYER
+<br>
+Nobody is ahead of you.
+`;
+
+}
+else if(nextPlayer){
+
+const moneyNeeded =
+Math.max(
+0,
+Math.ceil(nextPlayer.money - money)
+);
+
+nextRankText.innerHTML = `
+🎯 Next Target
+<br>
+${nextPlayer.username || "Player"}
+<br>
+Need $${moneyNeeded.toLocaleString()}
+`;
+
+}
+
+}else{
+
+yourRankText.textContent =
+"Not Ranked Yet";
+
+nextRankText.textContent =
+"Keep earning to enter the leaderboard.";
+
+}
+
 }
 
   
