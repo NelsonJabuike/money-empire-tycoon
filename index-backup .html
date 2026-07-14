@@ -1,0 +1,514 @@
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Money Empire Tycoon</title>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  
+  <div id="loadingScreen">
+    <h2>Loading Game...</h2>
+  </div>
+  
+<button id="logoutBtn">
+     Logout
+  </button>
+
+  <div class="container">
+
+    <h1>💰 Money Empire Tycoon</h1>
+
+   <div id="homePage" class="gamePage">
+
+      <p id="playerId" style="display:none;"></p>
+
+        <div class="money-box sticky-money">
+       💰 $<span id="money">0</span>
+       </div>
+     
+     <div class="progress-section">
+
+    <div class="progress-text">
+        <span id="currentRank">Beginner</span>
+        ➜
+        <span id="nextRank">Bronze Earner</span>
+    </div>
+
+    <div class="progress-bar">
+
+        <div id="progressFill"></div>
+
+    </div>
+
+    <p id="progressPercent">
+        0%
+    </p>
+
+    <p id="progressNumbers">
+        0 / 100 XP
+    </p>
+
+</div>
+     
+     <div id="floating-container"></div>
+
+<div class="playerCard">
+
+    <h2 id="welcomeUser">
+        👋 Welcome, Player
+    </h2>
+
+    <div class="playerStats">
+
+        <div class="playerBadge">
+            ⭐ Level
+            <span id="level">1</span>
+        </div>
+
+        <div class="playerBadge">
+            🏆
+            <span id="achievement">
+                Getting Started
+            </span>
+        </div>
+
+    </div>
+
+</div>
+
+    <button id="clickBtn">
+      Earn Money
+    </button>
+
+    
+   </div>
+   </div>
+
+<div id="businessPage" class="gamePage" style="display:none;">
+
+<div class="shop">
+
+      <h2>🏪 Shop</h2>
+
+      <div id="workerCard" class="item">
+        <h3>👷 Worker</h3>
+        <p>Income: $0.25/sec</p>
+        <p>Cost: $<span id="workerCost">100</span></p>
+       <button onclick="buyWorker()">
+        👷 Buy Worker
+       </button>
+      </div>
+
+      <div id="factoryCard" class="item">
+        <h3>🏭 Factory</h3>
+        <p>Income: $10/sec</p>
+        <p>Cost: $<span id="factoryCost">20000</span></p>
+        <button onclick="buyFactory()">
+        🏭 Buy Factory
+       </button>
+      </div>
+
+      <div id="logisticsCard" class="item">
+    <h3>🚚 Logistics Company</h3>
+    <p>Income: $40/sec</p>
+    <p>Cost: $<span id="logisticsCost">50000</span></p>
+
+    <button onclick="buyLogistics()">
+        🚚 Buy Logistics
+    </button>
+      </div>
+     
+      <div id="bankCard" class="item">
+        <h3>🏦 Bank</h3>
+        <p>Income: $100/sec</p>
+        <p>Cost: $<span id="bankCost">100000</span></p>
+        <button onclick="buyBank()">
+         🏦 Buy Bank
+        </button>
+      </div>
+
+     <div id="hotelCard" class="item">
+    <h3>🏨 Hotel</h3>
+
+    <p>Income: $500/sec</p>
+
+    <p>Cost: $<span id="hotelCost">625000</span></p>
+
+    <button onclick="buyHotel()">
+        🏨 Buy Hotel
+    </button>
+     </div>
+
+     <div id="airlineCard" class="item">
+    <h3>✈️ Airline</h3>
+    <p>Income: $2,500/sec</p>
+    <p>Cost: $<span id="airlineCost">3125000</span></p>
+
+    <button onclick="buyAirline()">
+        ✈️ Buy Airline
+    </button>
+     </div>
+
+     <div id="supermarketCard" class="item">
+    <h3>🛒 Supermarket Chain</h3>
+    <p>Income: $10,000/sec</p>
+    <p>Cost: $<span id="supermarketCost">15625000</span></p>
+
+    <button onclick="buySupermarket()">
+        🛒 Buy Supermarket
+    </button>
+     </div>
+
+     <div id="corporationCard" class="item">
+    <h3>🏢 Corporation</h3>
+    <p>Income: $50,000/sec</p>
+    <p>Cost: $<span id="corporationCost">78125000</span></p>
+
+    <button onclick="buyCorporation()">
+        🏢 Buy Corporation
+    </button>
+     </div>
+
+     <div id="oilCard" class="item">
+    <h3>🛢 Oil Company</h3>
+    <p>Income: $250,000/sec</p>
+    <p>Cost: $<span id="oilCost">390625000</span></p>
+
+    <button onclick="buyOil()">
+        🛢 Buy Oil Company
+    </button>
+     </div>
+
+     <div id="spaceCard" class="item">
+    <h3>🚀 Space Company</h3>
+    <p>Income: $1,000,000/sec</p>
+    <p>Cost: $<span id="spaceCost">1953125000</span></p>
+
+    <button onclick="buySpace()">
+        🚀 Buy Space Company
+    </button>
+     </div>
+
+    </div>
+ <div class="stats">
+
+      <h2>📊 Statistics</h2>
+
+      <p>Workers: <span id="workers">0</span></p>
+
+      <p>Factories: <span id="factories">0</span></p>
+
+      <p>Logistics: <span id="logistics">0</span></p>
+
+      <p>Banks: <span id="banks">0</span></p>
+
+      <p>Hotels: <span id="hotels">0</span></p>
+
+      <p>Airlines: <span id="airlines">0</span></p>
+
+      <p>Supermarkets: <span id="supermarkets">0</span></p>
+
+      <p>Corporations: <span id="corporations">0</span></p>
+
+      <p>Oil Companies: <span id="oilCompanies">0</span></p>
+
+      <p>Space Companies: <span id="spaceCompanies">0</span></p>
+
+      <p>
+       Total Income/sec:
+       $<span id="income">0</span>
+       </p>
+
+ </div>
+ 
+</div>
+
+<div id="withdrawPage" class="gamePage" style="display:none;">
+
+<div id="withdrawCard" class="withdraw-card" style="display:block;">
+
+<h2>💵 Withdrawal Center</h2>
+
+<p id="withdrawStatus">
+🔒 Locked
+</p>
+
+<div id="withdrawLockedSection">
+
+    <p>
+        Unlock at <b>$100,000</b>
+    </p>
+
+    <div class="progress-bar">
+        <div id="withdrawProgressFill"></div>
+    </div>
+
+    <p id="withdrawProgressText">
+        $0 / $100,000
+    </p>
+
+    <p id="withdrawRemaining">
+        Need $100,000 more
+    </p>
+
+</div>
+ 
+<hr>
+
+<p class="conversion-rate">
+
+100,000 Game Cash = $1.00
+
+</p>
+
+<p>
+
+Available Reward
+
+<br>
+
+<b id="rewardAmount">
+
+$0.00
+
+</b>
+
+</p>
+
+<button
+id="withdrawCardBtn"
+disabled>
+
+🔒 Locked
+
+</button>
+
+</div>
+
+</div>
+
+<div id="rewardsPage" class="gamePage" style="display:none;">
+  <div class="stats">
+
+<h2>🎁 Daily Reward</h2>
+
+<p id="dailyRewardInfo">
+Come back every 24 hours to claim free cash.
+</p>
+
+<button id="dailyRewardBtn">
+🎁 Claim Daily Reward
+</button>
+
+<p id="dailyRewardTimer">
+Reward Ready!
+</p>
+
+    </div>
+
+    <div class="stats">
+
+<h2>🏆 Achievement Dashboard</h2>
+
+ <div class="achievementRewardCard">
+
+<h3>
+🎁 Achievement Reward
+</h3>
+
+<p>
+Claim cash whenever you unlock a new achievement.
+</p>
+
+<button id="claimAchievementBtn">
+
+🎁 Claim Achievement Reward
+
+</button>
+
+</div>     
+
+<p id="achBeginner">🌱 Beginner → $10</p>
+
+<p id="achBronze">🥉 Bronze Earner → $100</p>
+
+<p id="achSilver">🥈 Silver Earner → $1,000</p>
+
+<p id="achGold">🥇 Gold Earner → $10,000</p>
+
+<p id="achPlatinum">💎 Platinum Investor → $50,000</p>
+
+<p id="achBusiness">👑 Business Owner → $100,000</p>
+
+<p id="achExpert">🏦 Financial Expert → $500,000</p>
+
+<p id="achMillionaire">💰 Millionaire → $1,000,000</p>
+
+<p id="achTycoon">🚀 Tycoon → $10,000,000</p>
+
+<p id="achMogul">🌎 Business Mogul → $100,000,000</p>
+
+<p id="achEmpire">👑 Empire Builder → $1,000,000,000</p>
+
+</div>
+
+ </div>
+
+<div id="leaderboardPage" class="gamePage" style="display:none;">
+
+ <div class="stats leaderboardCard">
+     <h2>🏆 Leaderboard Center</h2>
+
+      <h3>🌍 Global Top 100</h3>
+
+      <ol id="leaderboard">
+
+      <li>Loading...</li>
+
+      </ol>
+
+       <hr>
+
+      <div id="yourPositionCard">
+
+      <h3>⭐ Your Position</h3>
+
+       <p id="yourRank">
+        Loading...
+       </p>
+
+        <p id="nextRank">
+         Loading...
+         </p>
+
+     </div>
+
+</div>
+ 
+</div>
+
+<div id="morePage" class="gamePage" style="display:none;">
+
+<h2>⚙️ More</h2>
+
+<div class="stats">
+
+<h3>💵 Withdrawal Center</h3>
+
+<p>Convert your game cash into rewards.</p>
+
+<button id="openWithdrawPage">
+💵 Open Withdrawal Center
+</button>
+
+</div>
+
+<div class="stats">
+
+<h3>⚙️ Settings</h3>
+
+<p>Coming Soon</p>
+
+</div>
+
+<div class="stats">
+
+<h3>❓ Help</h3>
+
+<p>Coming Soon</p>
+
+</div>
+
+</div>
+   
+  <div id="withdrawModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>🎉 Withdrawal Unlocked!</h2>
+
+        <p>
+            You reached the minimum withdrawal amount.
+        </p>
+
+        <p>
+            💰 100,000 Game Cash = $1.00
+        </p>
+
+        <div class="modal-buttons">
+
+            <button id="withdrawNow">
+                💵 Withdraw Now
+            </button>
+
+            <button id="withdrawLater">
+                ⏰ Later
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+  <div id="achievementPopup">
+
+🏆 NEW ACHIEVEMENT!
+
+<br><br>
+
+<span id="achievementPopupText">
+
+</span>
+
+</div>
+
+  <div id="notificationContainer"></div>
+<div id="bottomNav">
+
+<button class="navBtn active" data-page="home">
+🏠
+<br>
+Home
+</button>
+
+<button class="navBtn" data-page="business">
+🏬
+<br>
+Business
+</button>
+
+<button class="navBtn" data-page="rewards">
+🎁
+<br>
+Rewards
+</button>
+
+<button class="navBtn" data-page="leaderboard">
+🏆
+<br>
+Ranking
+</button>
+
+<button class="navBtn" data-page="more">
+⚙️
+<br>
+More
+</button>
+
+</div>
+ 
+<script src="sound.js"></script>
+<script src="animations.js"></script>
+<script src="counter.js"></script>
+<script src="shopAnimations.js"></script>
+<script type="module" src="script.js"></script>
+</body>
+</html>
