@@ -1397,26 +1397,21 @@ leaderboard.innerHTML =
 "<li>Loading...</li>";
 
 const q = query(
-
 // Count every player
-const allPlayers =
-await getDocs(
-collection(db,"users")
+const allPlayers = await getDocs(
+    collection(db, "users")
 );
 
-const totalPlayers =
-allPlayers.size;
+const totalPlayers = allPlayers.size;
 
-collection(db,"users"),
-
-orderBy("money","desc"),
-
-limit(100)
-
+// Load Top 100
+const q = query(
+    collection(db, "users"),
+    orderBy("money", "desc"),
+    limit(100)
 );
 
-const snapshot =
-await getDocs(q);
+const snapshot = await getDocs(q);
 
 leaderboard.innerHTML = "";
 
