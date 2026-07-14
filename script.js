@@ -1398,6 +1398,15 @@ leaderboard.innerHTML =
 
 const q = query(
 
+// Count every player
+const allPlayers =
+await getDocs(
+collection(db,"users")
+);
+
+const totalPlayers =
+allPlayers.size;
+
 collection(db,"users"),
 
 orderBy("money","desc"),
@@ -1413,7 +1422,6 @@ leaderboard.innerHTML = "";
 
 let rank = 1;
 let yourRank = null;
-let totalPlayers = snapshot.size;
 let nextPlayer = null;
 
 snapshot.forEach(player=>{
