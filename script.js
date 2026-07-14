@@ -1378,6 +1378,49 @@ window.location.href =
 
 window.logout = logout;
 
+document
+.getElementById("openWithdrawPage")
+.addEventListener("click", () => {
+
+if(withdrawUnlocked){
+
+    document
+    .querySelector('[data-page="more"]')
+    .classList.remove("active");
+
+    document
+    .querySelector('[data-page="leaderboard"]')
+    .classList.remove("active");
+
+    document
+    .querySelector('[data-page="business"]')
+    .classList.remove("active");
+
+    document
+    .querySelector('[data-page="rewards"]')
+    .classList.remove("active");
+
+    document
+    .querySelector('[data-page="home"]')
+    .classList.remove("active");
+
+    document
+    .querySelector('[data-page="more"]')
+    .classList.add("active");
+
+    document.getElementById("morePage").style.display = "none";
+    document.getElementById("withdrawPage").style.display = "block";
+
+}else{
+
+showNotification(
+"🔒 Reach $100,000 to unlock the Withdrawal Center.",
+"warning"
+);
+
+}
+
+});
 
 async function loadLeaderboard(){
 
