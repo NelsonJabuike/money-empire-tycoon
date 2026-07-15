@@ -70,17 +70,17 @@ const DAILY_REWARD = 1000;
 
 const ACHIEVEMENT_REWARDS = {
 
-"🌱 Beginner":100,
+"🌱 Beginner":10,
 
-"🥉 Bronze Earner":500,
+"🥉 Bronze Earner":300,
 
 "🥈 Silver Earner":1000,
 
-"🥇 Gold Earner":5000,
+"🥇 Gold Earner":4000,
 
 "💎 Platinum Investor":10000,
 
-"👑 Business Owner":25000,
+"👑 Business Owner":20000,
 
 "🏦 Financial Expert":50000,
 
