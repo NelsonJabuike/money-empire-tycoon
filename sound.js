@@ -25,6 +25,15 @@ background: new Audio("sounds/background.mp3")
 
 };
 
+let soundEnabled =
+JSON.parse(localStorage.getItem("soundEnabled") ?? "true");
+
+let musicEnabled =
+JSON.parse(localStorage.getItem("musicEnabled") ?? "true");
+
+let masterVolume =
+Number(localStorage.getItem("masterVolume") ?? "0.5");
+
 function playSound(name){
 
 const sound = sounds[name];
@@ -35,7 +44,9 @@ sound.pause();
 
 sound.currentTime = 0;
 
-sound.volume = 0.5;
+if(!soundEnabled) return;
+
+sound.volume = masterVolume;
 
 sound.play().catch(()=>{});
 
@@ -49,9 +60,11 @@ const music = sounds.background;
 
 if(!music) return;
 
+if(!musicEnabled) return;
+
 music.loop = true;
 
-music.volume = 0.25;
+music.volume = masterVolume * 0.5;
 
 music.play().catch(()=>{});
 
