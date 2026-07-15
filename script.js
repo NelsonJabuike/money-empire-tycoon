@@ -1389,6 +1389,16 @@ document.getElementById("withdrawPage").style.display="block";
 
 });
 
+document
+.getElementById("openSettingsPage")
+.addEventListener("click",()=>{
+
+document.getElementById("morePage").style.display = "none";
+
+document.getElementById("settingsPage").style.display = "block";
+
+});
+
 async function loadLeaderboard() {
 
 const leaderboard =
@@ -1826,6 +1836,15 @@ document
 document.getElementById("withdrawPage").style.display="none";
 
 document.getElementById("morePage").style.display="block";
+
+});
+document
+.getElementById("backFromSettingsBtn")
+.addEventListener("click",()=>{
+
+document.getElementById("settingsPage").style.display = "none";
+
+document.getElementById("morePage").style.display = "block";
 
 });
 console.log("Bottom navigation loaded");
