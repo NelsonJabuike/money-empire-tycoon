@@ -1904,3 +1904,85 @@ btn.classList.add("active");
 });
 
 });
+
+// ==========================
+// SETTINGS SYSTEM
+// ==========================
+
+const soundToggleBtn = document.getElementById("soundToggleBtn");
+const musicToggleBtn = document.getElementById("musicToggleBtn");
+const volumeSlider = document.getElementById("volumeSlider");
+const volumeText = document.getElementById("volumeText");
+const cloudStatus = document.getElementById("cloudStatus");
+const saveNowBtn = document.getElementById("saveNowBtn");
+
+// ---------- Load Saved Settings ----------
+soundToggleBtn.textContent = soundEnabled ? "ON" : "OFF";
+musicToggleBtn.textContent = musicEnabled ? "ON" : "OFF";
+
+volumeSlider.value = Math.round(masterVolume * 100);
+volumeText.textContent = volumeSlider.value + "%";
+
+// ---------- Sound Toggle ----------
+soundToggleBtn.addEventListener("click", () => {
+
+    soundEnabled = !soundEnabled;
+
+    localStorage.setItem("soundEnabled", JSON.stringify(soundEnabled));
+
+    soundToggleBtn.textContent = soundEnabled ? "ON" : "OFF";
+
+});
+
+// ---------- Music Toggle ----------
+musicToggleBtn.addEventListener("click", () => {
+
+    musicEnabled = !musicEnabled;
+
+    localStorage.setItem("musicEnabled", JSON.stringify(musicEnabled));
+
+    musicToggleBtn.textContent = musicEnabled ? "ON" : "OFF";
+
+    if(musicEnabled){
+
+        playBackgroundMusic();
+
+    }else{
+
+        sounds.background.pause();
+
+    }
+
+});
+
+// ---------- Volume Slider ----------
+volumeSlider.addEventListener("input", () => {
+
+    masterVolume = volumeSlider.value / 100;
+
+    localStorage.setItem("masterVolume", masterVolume);
+
+    volumeText.textContent = volumeSlider.value + "%";
+
+    Object.values(sounds).forEach(sound => {
+
+        sound.volume = masterVolume;
+
+    });
+
+});
+
+// ---------- Save Now ----------
+saveNowBtn.addEventListener("click", async () => {
+
+    cloudStatus.textContent = "🟡 Saving...";
+
+    needsCloudSave = true;
+
+    await saveToFirestore();
+
+    cloudStatus.textContent = "🟢 Synced";
+
+    showNotification("☁ Game Saved");
+
+});
