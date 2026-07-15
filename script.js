@@ -65,6 +65,12 @@ let lastDailyReward = 0;
 let claimedAchievements = [];
 let dailyRewardUnlocked = false;
 let needsCloudSave = true;
+// ==========================
+// Settings
+// ==========================
+let soundEnabled = true;
+let musicEnabled = true;
+let masterVolume = 100;
 
 const DAILY_REWARD = 1000;
 
@@ -211,6 +217,15 @@ if(userSnap.exists()){
     .textContent =
     "👋 Welcome, " +
     (data.username || "Player");
+    
+    soundEnabled =
+    data.soundEnabled ?? true;
+
+    musicEnabled =
+    data.musicEnabled ?? true;
+
+    masterVolume =
+    data.masterVolume ?? 100;
 
     document.getElementById("loadingScreen")
 .style.display = "none";
@@ -806,7 +821,10 @@ withdrawBtn.textContent=
         withdrawalHistory,
         lastDailyReward,
         claimedAchievements,
-        dailyRewardUnlocked
+        dailyRewardUnlocked,
+        soundEnabled,
+        musicEnabled,
+        masterVolume
     })); 
 }
     
@@ -849,7 +867,10 @@ doc(db,"users",uid),
         withdrawalHistory,
         lastDailyReward,
         claimedAchievements,
-        dailyRewardUnlocked
+        dailyRewardUnlocked,
+        soundEnabled,
+        musicEnabled,
+        masterVolume
 }
 );
 
@@ -906,11 +927,17 @@ doc(db,"users",uid),
         
         dailyRewardUnlocked =
         save.dailyRewardUnlocked || false;
+        
+        soundEnabled =
+        save.soundEnabled ?? true;
+
+        musicEnabled =
+        save.musicEnabled ?? true;
+
+        masterVolume =
+        save.masterVolume ?? 100;
+    } 
     }
-
-
-    
- }
     
     function showFloatingMoney(){
 
