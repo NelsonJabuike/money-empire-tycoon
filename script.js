@@ -18,6 +18,7 @@ from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 const uid =
 localStorage.getItem("currentUser");
+alert("UID = " + uid);
 
 if(!uid){
 
@@ -120,7 +121,10 @@ doc(db, "users", uid);
 const userSnap =
 await getDoc(userRef);
 
+alert("Firestore reached");
+
 if(userSnap.exists()){
+    alert("Document exists");
 
     const data =
     userSnap.data();
